@@ -1,0 +1,41 @@
+---
+import Link from '@components/Link.astro';
+import { invoker } from '@invoker';
+import Layout from '@layouts/Layout.astro';
+
+const post = await invoker.post.query({ id: '1' });
+---
+
+<Layout title='GraphQL & invoker functions'>
+  <div class='dark:text-white'>
+    <h1 class='text-5xl font-bold'>GraphQL & invoker functions</h1>
+    <div class='space-y-2 mt-6'>
+      <p>In this exmaple, we call an invoker function that does a simple GraphQL call.</p>
+      <p>
+        <Link
+          href='https://github.com/natedunn/headroom/blob/main/src/pages/examples/graphql/index.astro'
+          target='_blank'
+        >
+          See code for example →
+        </Link>
+      </p>
+    </div>
+    <div class='mt-10 p-12 dark:bg-slate-800 bg-slate-200 rounded-lg'>
+      <h3 class='text-2xl'>Post Details:</h3>
+      <ul class='flex flex-col gap-2 mt-6'>
+        <li class='border-b-2 dark:border-white/50 border-black/50 pb-2'>
+          <span class='text-sm uppercase font-bold dark:text-blue-400 text-blue-600'>ID:</span>
+          {post.id}
+        </li>
+        <li class='border-b-2 dark:border-white/50 border-black/50 pb-2'>
+          <span class='text-sm uppercase font-bold dark:text-blue-400 text-blue-600'>TITLE:</span>
+          {post.title}
+        </li>
+        <li class='border-b-2 dark:border-white/50 border-black/50 pb-2'>
+          <span class='text-sm uppercase font-bold dark:text-blue-400 text-blue-600'>BODY:</span>
+          {post.body}
+        </li>
+      </ul>
+    </div>
+  </div>
+</Layout>

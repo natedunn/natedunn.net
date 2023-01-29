@@ -1,0 +1,41 @@
+---
+import Posts from '@components/Posts';
+import Layout from '@layouts/Layout.astro';
+import { invoker } from '@invoker';
+import Link from '@components/Link.astro';
+
+let page = 1;
+let limit = 3;
+
+const posts = await invoker.posts.query({
+  options: {
+    paginate: {
+      page,
+      limit,
+    },
+  },
+});
+---
+
+<Layout title='Posts'>
+  <div class='dark:text-white'>
+    <h1 class='text-5xl font-bold'>GraphQL w/ Pagination</h1>
+    <div class='space-y-2 mt-6'>
+      <p>
+        In this example we load initial static data, and then refetch new data with a Preact
+        component.
+      </p>
+      <p>
+        <Link
+          href='https://github.com/natedunn/headroom/blob/main/src/pages/examples/graphql/pagination.astro'
+          target='_blank'
+        >
+          See code for example →
+        </Link>
+      </p>
+    </div>
+    <div class='mt-10 p-12 dark:bg-slate-800 bg-slate-200 rounded-lg'>
+      <Posts initialPosts={posts} initialPage={page} limit={limit} client:load />
+    </div>
+  </div>
+</Layout>

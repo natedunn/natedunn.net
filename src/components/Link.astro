@@ -1,0 +1,14 @@
+---
+type Props = astroHTML.JSX.AnchorHTMLAttributes;
+const { href, ...attrs } = Astro.props;
+
+const { class: className, ...fitleredAttrs } = attrs;
+---
+
+<a
+  href={href}
+  {...fitleredAttrs}
+  class={`hover:underline focus:underline focus:outline-none underline-offset-2 decoration-2 ${attrs.class}`}
+>
+  <slot />
+</a>

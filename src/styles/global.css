@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Just some presentation styles for example site.  */
+/* You may safely keep or remove these */
+html {
+  --color-primary: theme('colors.slate.500');
+  --color-primary-hover: theme('colors.slate.800');
+
+  background-color: theme('colors.slate.50');
+}
+
+html.dark {
+  --color-primary: theme('colors.slate.200');
+  --color-primary-hover: theme('colors.slate.600');
+
+  background-color: theme('colors.slate.900');
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "strictNullChecks": true,
+    "paths": {
+      "@invoker": ["src/lib/invokers"],
+      "@fetcher": ["src/lib/fetchers"],
+      "@codegen": ["src/lib/codegen/_generated"],
+      "@lib/*": ["src/lib/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}

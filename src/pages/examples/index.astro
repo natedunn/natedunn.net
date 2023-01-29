@@ -1,0 +1,29 @@
+---
+import Card from '@components/Card.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title='Examples'>
+  <main class='dark:text-white'>
+    <h1 class='text-5xl font-bold'>Examples</h1>
+    <p class='mt-3'>Here are some examples of how to use Headroom</p>
+
+    <div class='grid grid-cols-3 gap-6 mt-10'>
+      <Card
+        title='GraphQL & invoker functions'
+        description='Basic Use of GraphQL and invoker functions'
+        url='/examples/graphql'
+      />
+      <Card
+        title='REST & invoker functions'
+        description='See how to load data via REST API'
+        url='/examples/rest'
+      />
+      <Card
+        title='GraphQL w/ Pagination'
+        description='Load in inital data with the ability to page through the remaing data.'
+        url='/examples/graphql/pagination'
+      />
+    </div>
+  </main>
+</Layout>
