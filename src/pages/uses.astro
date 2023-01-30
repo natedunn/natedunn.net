@@ -1,0 +1,37 @@
+---
+import Link from '@components/Link.astro';
+import PageHeader from '@components/PageHeader.astro';
+import Layout from '../layouts/Layout.astro';
+
+import { uses } from '../data/usesData';
+---
+
+<Layout title='Uses'>
+  <main>
+    <PageHeader
+      title='Uses'
+      subtitle='Here is a list of things that I use frequently, if not daily.'
+    />
+    <div class='space-y-14 max-w-2xl'>
+      {
+        uses.map((u) => {
+          return (
+            <div>
+              <h3 class='text-2xl font-bold'>{u.name}</h3>
+              <div class='ml-6 mt-5 space-y-6'>
+                {u.items.map((i) => {
+                  return (
+                    <div class='space-y-1'>
+                      <h4 class='text-lg font-medium'>{i.name}</h4>
+                      <p class='opacity-80'>{i.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </main>
+</Layout>

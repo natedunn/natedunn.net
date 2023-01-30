@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -10,9 +12,19 @@ module.exports = {
     extend: {
       colors: {
         primary: 'var(--color-primary)',
-        'primary-hover': 'var(--color-primary-hover)',
+        'primary-active': 'var(--color-primary-active)',
+        accent: 'var(--color-accent)',
+        'accent-active': 'var(--color-accent-active)',
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    plugin(function ({ addVariant }) {
+      addVariant('hocus', ['&:hover', '&:focus']);
+      addVariant('factive', ['&:active', '&:focus']);
+      addVariant('all', ['&:active', '&:focus', '&:hover']);
+      addVariant('list', ['body.list-page &']);
+    }),
+  ],
 };

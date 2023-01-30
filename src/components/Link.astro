@@ -1,14 +1,21 @@
 ---
-type Props = astroHTML.JSX.AnchorHTMLAttributes;
-const { href, ...attrs } = Astro.props;
-
+import { clsx } from 'clsx';
+type Props = astroHTML.JSX.AnchorHTMLAttributes & {
+  href: string;
+  accentColor?: boolean;
+};
+const { href, accentColor = true, ...attrs } = Astro.props;
 const { class: className, ...fitleredAttrs } = attrs;
 ---
 
 <a
   href={href}
   {...fitleredAttrs}
-  class={`hover:underline focus:underline focus:outline-none underline-offset-2 decoration-2 ${attrs.class}`}
+  class={clsx(
+    'inline-block all:underline all:outline-none underline-offset-2 decoration-[0.1em]',
+    accentColor ? 'text-accent hocus:text-accent-active' : null,
+    className
+  )}
 >
   <slot />
 </a>

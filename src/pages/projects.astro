@@ -1,0 +1,76 @@
+---
+import { Image } from '@astrojs/image/components';
+import Link from '@components/Link.astro';
+import PageHeader from '@components/PageHeader.astro';
+import Layout from '@layouts/Layout.astro';
+
+type Project = {
+  title: string;
+  description: string;
+  link: {
+    text: string;
+    url: string;
+  };
+  status: 'in-progress' | 'completed' | 'maintained';
+  image: string;
+};
+
+const projects = [
+  {
+    title: 'Radlist',
+    description: 'Make and share lists for books, movies, albums, games, and more.',
+    link: {
+      text: 'View Project',
+      url: 'https://radl.ist',
+    },
+    status: 'in-progress',
+    image: 'https://picsum.photos/300/200',
+  },
+  {
+    title: 'Headroom',
+    description:
+      'A simple starter kit for building static sites with Astro. Built in Typescript and includes Tailwind CSS and tRPC-like APIs for clean templates & components.',
+    link: {
+      text: 'View Project',
+      url: 'https://github.com/natedunn/headroom',
+    },
+    status: 'maintained',
+    image: 'https://picsum.photos/300/200',
+  },
+  {
+    title: 'Proper',
+    description:
+      'Generate shell scripts to setup a macOS laptop for design, development, and whatever else you need.',
+    link: {
+      text: 'View Project',
+      url: 'https://useproper.app/',
+    },
+    status: 'maintained',
+    image: 'https://picsum.photos/300/200',
+  },
+] satisfies Project[];
+---
+
+<Layout title='Projects'>
+  <main>
+    <PageHeader title='Projects' subtitle='A few things I am working on.' />
+    <div class='space-y-6 max-w-2xl'>
+      {
+        projects.map((p) => {
+          return (
+            <div class='flex items-center space-x-6'>
+              <Image src={p.image} alt={p.title} aspectRatio='3:2' width={300} height={200} />
+              <div>
+                <h3 class='font-bold text-2xl mt-2'>{p.title}</h3>
+                <h4 class='mt-1 opacity-70'>{p.description}</h4>
+                <Link class='mt-4' href={p.link.url}>
+                  {p.link.text}
+                </Link>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </main>
+</Layout>

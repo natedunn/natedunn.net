@@ -1,47 +1,20 @@
 ---
+import Link from '@components/Link.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Astro + Data fetching made easy'>
-  <main>
-    <div class='mx-auto mt-16 max-w-7xl px-4 sm:mt-24 sm:px-6'>
-      <div class='text-center'>
-        <h1
-          class='text-4xl font-bold tracking-tight text-slate-700 dark:text-white sm:text-5xl md:text-6xl'
-        >
-          <span class='block'>
-            Welcome to <span class='text-slate-500 dark:text-blue-200 underline underline-offset-4'>
-              Headroom
-            </span>
-          </span>
-        </h1>
-        <div class='mt-6'>
-          <p
-            class='mx-auto mt-3 max-w-md text-base text-slate-700 dark:text-white sm:text-lg md:mt-5 md:max-w-3xl md:text-xl'
-          >
-            A simple, starter kit for building static sites with Astro. Built in <span
-              class='underline'
-            >
-              Typescript
-            </span> and includes <span class='underline'>Tailwind CSS</span> and tRPC-like APIs for clean
-            templates.
-          </p>
-        </div>
-        <div class='space-x-3 mt-14'>
-          <a
-            class='px-6 py-3 rounded-full bg-blue-700 hover:bg-blue-900 text-white'
-            href='https://github.com/natedunn/headroom'
-          >
-            Learn More
-          </a>
-          <a
-            class='px-6 py-3 rounded-full bg-blue-700 hover:bg-blue-900 text-white'
-            href='/examples'
-          >
-            See Examples
-          </a>
-        </div>
-      </div>
+<Layout title='Home'>
+  <main class='max-w-2xl'>
+    <h1 class='text-3xl font-bold'>Nate Dunn</h1>
+    <h2 class='text-2xl'>Full stack web developer</h2>
+    <div class='space-y-3 mt-6 opacity-80'>
+      <p>
+        I build applications and websites with a careful eye for design and user experience. I'm
+        from Phoenix, Arizona, but I have been based out of Mexico City for the last {
+          new Date().getFullYear() - 2017
+        } years.
+      </p>
+      <p>If you would like to work with me, please <Link href='/connect'>get in touch</Link>.</p>
     </div>
   </main>
 </Layout>

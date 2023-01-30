@@ -2,20 +2,21 @@
 import Link from './Link.astro';
 ---
 
-<footer class='dark:text-white/75 text-black/75 py-12'>
-  <div class='container'>
-    <ul class='flex justify-center items-center gap-4'>
-      <li>
-        Framework by <Link class='dark:text-white text-black' href='https://astro.build/'
-          >Astro</Link
-        >
-      </li>
-      <li>|</li>
-      <li>
-        Kit by <Link class='dark:text-white text-black' href='https://github.com/natedunn'
-          >Nate Dunn</Link
-        >
-      </li>
-    </ul>
-  </div>
+<style>
+  li:not(:first-of-type) {
+    padding-left: theme('spacing.6');
+  }
+</style>
+
+<footer class='dark:text-white/75 text-black/75'>
+  <ul class='flex justify-start items-center space-x-6 divide-x-2 dark:divide-zinc-100/20'>
+    <li>
+      © {new Date().getFullYear()}
+      <Link href='https://github.com/natedunn'>Nate Dunn</Link>
+    </li>
+    <li>Built with love in{` `} 🇲🇽</li>
+    <li>
+      <Link href='/colophon'>Colophon</Link>
+    </li>
+  </ul>
 </footer>

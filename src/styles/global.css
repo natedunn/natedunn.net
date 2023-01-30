@@ -2,18 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Just some presentation styles for example site.  */
-/* You may safely keep or remove these */
 html {
-  --color-primary: theme('colors.slate.500');
-  --color-primary-hover: theme('colors.slate.800');
+  --color-primary: theme('colors.zinc.700');
+  --color-primary-active: theme('colors.zinc.900');
+  --color-accent: theme('colors.blue.500');
+  --color-accent-active: theme('colors.blue.900');
 
-  background-color: theme('colors.slate.50');
+  background-color: theme('colors.zinc.50');
+  color: var(--color-primary);
 }
 
 html.dark {
-  --color-primary: theme('colors.slate.200');
-  --color-primary-hover: theme('colors.slate.600');
+  --color-primary: theme('colors.zinc.200');
+  --color-primary-active: theme('colors.zinc.600');
+  --color-accent: theme('colors.blue.200');
+  --color-accent-active: theme('colors.blue.400');
 
-  background-color: theme('colors.slate.900');
+  color: var(--color-primary);
+  background-color: theme('colors.zinc.900');
 }

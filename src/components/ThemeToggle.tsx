@@ -18,7 +18,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      class='bg-slate-200 dark:bg-slate-800 px-3 py-2 rounded-full text-slate-500 dark:text-slate-400'
+      class='px-2 py-2 text-primary rounded-full hover:ring-2 hover:ring-primary focus:ring-2 focus:ring-primary transition-all ease-in-out duration-150'
       onClick={handleClick}
     >
       {theme === 'light' ? (
