@@ -19,11 +19,11 @@ const { title } = Astro.props;
     <meta name='generator' content={Astro.generator} />
     <title>/{title.toLowerCase()}</title>
   </head>
-  <body>
+  <body class='flex flex-col h-full'>
     <header class='p-10'>
       <MainNav />
     </header>
-    <div class='p-10'>
+    <div class='p-10 flex-auto'>
       <slot />
     </div>
     <script is:inline>
@@ -45,7 +45,7 @@ const { title } = Astro.props;
       window.localStorage.setItem('theme', theme);
     </script>
   </body>
-  <div class='p-10'>
+  <div class='p-10 mt-auto'>
     <Footer />
   </div>
 </html>

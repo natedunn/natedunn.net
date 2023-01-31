@@ -2,12 +2,30 @@
 import Link from '@components/Link.astro';
 import PageHeader from '@components/PageHeader.astro';
 import Layout from '../layouts/Layout.astro';
+import { Image } from '@astrojs/image/components';
 ---
 
 <Layout title='Home'>
   <main class='max-w-2xl'>
-    <PageHeader title='Nate Dunn' subtitle='Full stack web developer' />
-    <div class='space-y-3 mt-6 opacity-80'>
+    <div
+      class='flex items-center border-b border-zinc-200 dark:border-zinc-700 pb-6 mb-8 space-x-6'
+    >
+      <Image
+        class='rounded-full'
+        src='/public/me-square.webp'
+        alt='Nate Dunn'
+        aspectRatio='1:2'
+        width={76}
+        height={76}
+        quality={100}
+      />
+      <div class='space-y-1'>
+        <h1 class='text-4xl font-bold'>Nate Dunn</h1>
+        <h2 class='text-lg'>Full stack web developer</h2>
+      </div>
+    </div>
+
+    <div class='space-y-6 opacity-80 text-lg'>
       <p>
         I am a <span class='font-semibold'>full stack web developer</span>, originally from Phoenix,
         Arizona but now living in Mexico City.
@@ -15,8 +33,11 @@ import Layout from '../layouts/Layout.astro';
       <p>
         I build applications and websites with a careful eye for design and user experience. I have {
           new Date().getFullYear() - 2012
-        } years of professional experience in various web technologies, though these days I specialize
-        in <span class='font-semibold'>React</span> and <span class='font-semibold'>Next.js</span>.
+        } years of professional experience in various web technologies. These days I specialize in <span
+          class='font-semibold'
+        >
+          React
+        </span> and <span class='font-semibold'>Next.js</span>.
       </p>
       <p>
         I am an avid learner and experimenter. But most of all, I'm passionate about helping make

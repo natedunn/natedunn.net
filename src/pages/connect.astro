@@ -2,6 +2,7 @@
 interface Props {}
 import GithubIcon from '@components/icons/GithubIcon.astro';
 import LinkedInIcon from '@components/icons/LinkedInIcon.astro';
+import MailIcon from '@components/icons/MailIcon.astro';
 import MastodonIcon from '@components/icons/MastodonIcon.astro';
 import TwitterIcon from '@components/icons/TwitterIcon.astro';
 import Link from '@components/Link.astro';
@@ -15,6 +16,7 @@ import Layout from '../layouts/Layout.astro';
   }
   li > a {
     @apply space-x-2;
+    font-weight: theme('fontWeight.semibold');
     display: inline-flex !important;
     align-items: center;
     font-size: theme('fontSize.xl');
@@ -35,6 +37,13 @@ import Layout from '../layouts/Layout.astro';
     <div class='max-w-2xl'>
       <ul class='space-y-8'>
         <li>
+          <Link href='mailto:hello@natedunn.net' target='_blank'>
+            <MailIcon className='connect-icon' />
+            <div>Email — hello@natedunn.net</div>
+          </Link>
+          <p>Connect with me directly.</p>
+        </li>
+        <li>
           <Link href='https://hachyderm.io/@natedunn' target='_blank'>
             <MastodonIcon className='connect-icon' />
             <div>
@@ -51,7 +60,7 @@ import Layout from '../layouts/Layout.astro';
           <p>View my public projects. Watch those green boxes fill out.</p>
         </li>
         <li>
-          <Link href='https://www.linkedin.com/in/natedunn' target='_blank'>
+          <Link href='https://www.linkedin.com/in/nate-dunn/' target='_blank'>
             <LinkedInIcon className='connect-icon' />
             <div>LinkedIn — @nate-dunn</div>
           </Link>

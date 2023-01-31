@@ -24,7 +24,7 @@ const projects = [
       url: 'https://radl.ist',
     },
     status: 'in-progress',
-    image: 'https://picsum.photos/300/200',
+    image: '/public/thumbnail-radlist.png',
   },
   {
     title: 'Headroom',
@@ -35,7 +35,7 @@ const projects = [
       url: 'https://github.com/natedunn/headroom',
     },
     status: 'maintained',
-    image: 'https://picsum.photos/300/200',
+    image: '/public/thumbnail-headroom.png',
   },
   {
     title: 'Proper',
@@ -46,7 +46,7 @@ const projects = [
       url: 'https://useproper.app/',
     },
     status: 'maintained',
-    image: 'https://picsum.photos/300/200',
+    image: '/public/thumbnail-proper.png',
   },
 ] satisfies Project[];
 ---
@@ -63,7 +63,7 @@ const projects = [
               <div>
                 <h3 class='font-bold text-2xl mt-2'>{p.title}</h3>
                 <h4 class='mt-1 opacity-70'>{p.description}</h4>
-                <Link class='mt-4' href={p.link.url}>
+                <Link class='mt-4' href={p.link.url} target='_blank'>
                   {p.link.text}
                 </Link>
               </div>

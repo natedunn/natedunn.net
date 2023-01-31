@@ -7,7 +7,7 @@ import Link from '@components/Link.astro';
 
 const postsEntries = await getCollection('posts');
 const posts = postsEntries.slice().sort((a, b) => {
-  return new Date(b.data.date).getDate() - new Date(a.data.date).getDate();
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
 });
 ---
 

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 html {
+  height: 100%;
+}
+
+html {
   --color-primary: theme('colors.zinc.700');
   --color-primary-active: theme('colors.zinc.900');
   --color-accent: theme('colors.blue.500');

@@ -30,11 +30,13 @@ const navItems = [
 ---
 
 <nav>
-  <div class='w-full flex items-center justify-evenly space-x-4'>
+  <div
+    class='w-full flex items-center justify-evenly space-x-4 border-b border-zinc-200 dark:border-zinc-700 pb-8'
+  >
     <div class='flex'>
       <a href='/' class='focus:outline-none'>
         <svg
-          class='w-full max-w-[50px] text-zinc-900 dark:text-white'
+          class='w-full max-w-[50px] text-primary'
           viewBox='0 0 208 136'
           fill='transparent'
           xmlns='http://www.w3.org/2000/svg'
@@ -54,10 +56,13 @@ const navItems = [
         navItems.map((item) => (
           <Link
             class={clsx(
-              'text-primary px-4 py-1 text-lg',
-              `/${currentPath}` === item.href ? 'underline select-none pointer-events-none' : ''
+              'px-4 py-1 text-lg opacity-80 hocus:opacity-100',
+              `/${currentPath}` === item.href
+                ? 'underline select-none pointer-events-none text-black dark:text-white !opacity-100'
+                : ''
             )}
             href={item.href}
+            accentColor={false}
           >
             {item.text}
           </Link>
