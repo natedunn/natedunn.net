@@ -1,0 +1,72 @@
+---
+interface Props {}
+import GithubIcon from '@components/icons/GithubIcon.astro';
+import LinkedInIcon from '@components/icons/LinkedInIcon.astro';
+import MastodonIcon from '@components/icons/MastodonIcon.astro';
+import TwitterIcon from '@components/icons/TwitterIcon.astro';
+import Link from '@components/Link.astro';
+import PageHeader from '@components/PageHeader.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<style>
+  li {
+    @apply space-y-1;
+  }
+  li > a {
+    @apply space-x-2;
+    display: inline-flex !important;
+    align-items: center;
+    font-size: theme('fontSize.xl');
+  }
+  li > p {
+    opacity: theme('opacity.80');
+    margin-left: theme('spacing.7');
+  }
+  .connect-icon {
+    width: 100%;
+    max-width: theme('width.5');
+  }
+</style>
+
+<Layout title='Connect'>
+  <main>
+    <PageHeader title='Connect' subtitle='Find and connect with me around the web.' />
+    <div class='max-w-2xl'>
+      <ul class='space-y-8'>
+        <li>
+          <Link href='https://hachyderm.io/@natedunn' target='_blank'>
+            <MastodonIcon className='connect-icon' />
+            <div>
+              Mastodon — @natedunn<span class='opacity-80'>@hachyderm.io</span>
+            </div>
+          </Link>
+          <p>My primary place of communication, particularly for dev-related topics.</p>
+        </li>
+        <li>
+          <Link href='https://github.com/natedunn' target='_blank'>
+            <GithubIcon className='connect-icon' />
+            <div>Github — @natedunn</div>
+          </Link>
+          <p>View my public projects. Watch those green boxes fill out.</p>
+        </li>
+        <li>
+          <Link href='https://www.linkedin.com/in/natedunn' target='_blank'>
+            <LinkedInIcon className='connect-icon' />
+            <div>LinkedIn — @nate-dunn</div>
+          </Link>
+          <p>You know what it is. Check out the resume and connect with me.</p>
+        </li>
+        <li>
+          <Link href='https://twitter.com/natedunn' target='_blank'>
+            <TwitterIcon className='connect-icon' />
+            <div>Twitter — @natedunn</div>
+          </Link>
+          <p>
+            I don't use this very often after <span class='italic'>certain</span> changes at the company.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </main>
+</Layout>

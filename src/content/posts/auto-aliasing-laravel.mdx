@@ -1,0 +1,58 @@
+---
+title: 'Auto-aliasing Laravel components'
+tags: [tips, php, laravel, blade, components]
+image: ''
+slug: 'auto-aliasing-laravel'
+date: '2019-04-12T00:00:00-05:00'
+description: 'Easier developer Laravel components with auto-aliasing'
+---
+
+## A JS World
+
+Since the advent of React, component-based development has almost become a default way of thinking and developing for the front-end. It is interesting to see all these new Javascript frameworks like React, Vue, and Svelte hit the scene with their own unique approaches.
+
+This excitement though kind of goes away a bit when we enter into PHP-land. I've thought a lot about how we could improve on the "componentization" methods already built into frameworks like Laravel. This is a 🔥 hot tip that has worked for me and might help your next project. Its all about how to auto-alias your Laravel components.
+
+## Example
+
+Imagine you just created a shiny new component in `views/components/alert.blade.php`. Typically the data you are passing is simple enough and you don't really have a need for slots. What if you could just access that component in any Blade template with its own auto-aliased include directive? So all you would have to type is:
+
+```php
+@_alert([
+  'title' => 'Something went wrong!',
+  'type' => 'error',
+  'error' => $error_message,
+  'dismissible' => false
+])
+```
+
+## Great but why?
+
+Well, you can access any component though a few methods: `@include` and `@component` being two of them. But with `@include` you have to type out the relative path, and with `@component` you have to also include `@endcomponent`. While these are fine, wouldn't it be nicer to just auto-alias all your components?
+
+## How to do it
+
+First you will need to navigator your editor to `AppServiceProvider`. At the top of the file you can add the following snippet so we can have access to the Blade methods that we will be using.
+
+```php
+use Illuminate\Support\Facades\Blade;
+```
+
+Next we will add this next snippet to the `boot` method in the same file. This will grab each file in the directory `views/components` and then alias each one it finds.
+
+```php
+foreach (glob(resource_path('views') . "/components/*.php") as $component) {
+  $componentName = str_replace(".blade.php", "", trim(substr($component, strrpos($component, '/') + 1)));
+  $componentPath = "components." . $componentName;
+  $namePrepend = '_';
+  Blade::include($componentPath, $namePrepend . $componentName);
+}
+```
+
+And that's it! Now you can access your aliased component in any file. You can also change or remove the `$namePrepend` to your liking. I personally like have the underscore before each component to let me quickly know what it is.
+
+## Final notes
+
+This doesn't override any other method to access components or template files. It just adds another one. If you need to use slots in your component, you don't have to change or revert back. Just use Laravel's `@component` directive in that use-case.
+
+Thanks for reading and I hope this was helpful.

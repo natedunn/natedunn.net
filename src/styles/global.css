@@ -8,7 +8,7 @@ html {
   --color-accent: theme('colors.blue.500');
   --color-accent-active: theme('colors.blue.900');
 
-  background-color: theme('colors.zinc.50');
+  background-color: theme('colors.zinc.100');
   color: var(--color-primary);
 }
 
@@ -20,4 +20,21 @@ html.dark {
 
   color: var(--color-primary);
   background-color: theme('colors.zinc.900');
+}
+
+/* Overides for Tailwind prose */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-primary);
+}
+.prose a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.prose a:hover {
+  @apply inline-block all:underline all:outline-none underline-offset-2 decoration-[0.1em] hover:text-accent-active;
 }

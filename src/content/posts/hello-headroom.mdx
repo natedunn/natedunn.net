@@ -1,0 +1,30 @@
+---
+title: Hello Headroom
+tags: [project, headroom]
+image: 'https://images.unsplash.com/photo-1542731237-8b1b0b2b5f1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+slug: 'hello-headroom'
+date: '2023-01-30T12:13:10-06:00'
+description: 'A simple starting point for static Astro projects with headless data'
+---
+
+## Why use Astro instead of Next.js
+
+I often work on static and/or headless websites. For the longest time my go-to framework of choice was Next.js. Not because it was the best at static rendering or exporting, but due to it's flexibility with SSG, SSR, and client-side rendering. Whatever feature the project needed, Next.js is generally up for the task, even if there was some scaffolding overhead, and certainly, a large bundle size included.
+
+That last part was key. Even after applying strategies to analyze and reduce, bundle sizes were always a battle with Next.js. Then Astro came on the scene and promised to change the game by drastically reducing the amount of Javascript that you send to the browser. Suddenly we were able to build the same project, with the same features, but with a much performant end result.
+
+So because of my shift to Astro, this project is a way for me to maintain a reasonable starting point while including helpful methods of fetching data from a headless source.
+
+Lets get into it.
+
+## What is Headroom?
+
+Headroom is very simple. Its a base install of Astro with helper functions for fetching, tRPC-like APIs for surfacing those fetches to your components, and an optional GraphQL codegen. There are a few other niceties like Tailwind and Typescript. But nearly everything can be updated, removed, and added to, as your project needs. Nothing is too sacred here or too fragile here.
+
+I have some basic documentation on how to use some of these features, but the rest is up to you and your project needs.
+
+## Future work
+
+I plan on updating this as continue to build sites off of it, but eventually I could see this as a simple Astro plugin. I'll update this post or add a new post if there are significant changes.
+
+[Github](https://github.com/natedunn/headroom) | [Examples](https://headroom.natedunn.net/examples) | [Documentation](https://headroom.natedunn.net/docs)

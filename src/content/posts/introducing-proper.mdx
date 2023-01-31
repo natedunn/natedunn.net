@@ -1,0 +1,26 @@
+---
+title: Introducing Proper
+tags: [project, proper]
+image: ''
+slug: 'introducing-proper'
+date: '2019-05-15T00:00:00-05:00'
+description: 'A new project to help with bulk installing applications on Mac OS'
+---
+
+## A shell script to setup and maintain a macOS machine.
+
+Not long ago I had a string of unfortunate events in which I had to reset my computer from scratch several times in a row. The exhausting process of reinstalling all my apps, dependencies, and more made me think there had to be a better way streamline this process. And that's where the idea of Proper came from. Proper is a pretty sophisticated, but mostly nifty bash shell script to help take away the headache of setting up and maintaining the dependencies your machine.
+
+All you have to do is update the manifest files with what you need, run Proper, and it takes care of the rest. You can also rerun to keep everything up-to-date. It's pretty cool.
+
+At the moment it supports, Composer, NPM, Homebrew, and the App Store (through MAS). You can take a look at [my manifest](https://github.com/natedunn/proper/tree/master/manifest) file to get an idea on how to set those up.
+
+## Proper script builder
+
+Additionally I built the Proper script builder app. It allows you to search for the dependencies that you need, queue them up, and then export to a ready-to-run Proper script. It helps save a lot of time by not forcing you to search for dependency names on your own. Note: At the time of this writing it only supports Composer and NPM, but it should eventually get full support for Homebrew and the App Store very soon.
+
+Hope you find this interesting. It is pretty early on, but I wanted to "soft-launch" and document the process along the way. Improvement and documentation are coming soon.
+
+Thanks!
+
+[useproper.app](https://www.useproper.app) | [Proper Github](https://github.com/useproper/proper/) | [Proper Builder Github](https://github.com/useproper/proper-app/)

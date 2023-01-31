@@ -1,20 +1,34 @@
 ---
 import Link from '@components/Link.astro';
+import PageHeader from '@components/PageHeader.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title='Home'>
   <main class='max-w-2xl'>
-    <h1 class='text-3xl font-bold'>Nate Dunn</h1>
-    <h2 class='text-2xl'>Full stack web developer</h2>
+    <PageHeader title='Nate Dunn' subtitle='Full stack web developer' />
     <div class='space-y-3 mt-6 opacity-80'>
       <p>
-        I build applications and websites with a careful eye for design and user experience. I'm
-        from Phoenix, Arizona, but I have been based out of Mexico City for the last {
-          new Date().getFullYear() - 2017
-        } years.
+        I am a <span class='font-semibold'>full stack web developer</span>, originally from Phoenix,
+        Arizona but now living in Mexico City.
       </p>
-      <p>If you would like to work with me, please <Link href='/connect'>get in touch</Link>.</p>
+      <p>
+        I build applications and websites with a careful eye for design and user experience. I have {
+          new Date().getFullYear() - 2012
+        } years of professional experience in various web technologies, though these days I specialize
+        in <span class='font-semibold'>React</span> and <span class='font-semibold'>Next.js</span>.
+      </p>
+      <p>
+        I am an avid learner and experimenter. But most of all, I'm passionate about helping make
+        the web a more beautiful, performant, and accessible experience for everyone.
+      </p>
+      <p>
+        If you have anything that you would like to connect with me on, please <Link
+          href='/connect'
+        >
+          get in touch
+        </Link>.
+      </p>
     </div>
   </main>
 </Layout>

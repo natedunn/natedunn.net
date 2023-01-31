@@ -1,0 +1,264 @@
+---
+title: 'State Management for Alpine.js with Spruce'
+tags: [tips, js, alpine]
+image: ''
+slug: 'state-management-for-alpine'
+date: '2020-06-25T00:00:00-05:00'
+description: 'Basic state management comes to Alpine.js through Spruce.'
+---
+
+Alpine.js has recently been making some noise in the front-end world since its [release in late 2019](https://github.com/alpinejs/alpine/releases/tag/v1.0.0) thanks to the wonderful work of [Caleb Porzio](https://github.com/calebporzio). And while this post won't be a deep walkthrough of Alpine (maybe a post for the future), we will touch what makes it great, and one thing its missing.
+
+If you don't know about Alpine.js, I highly recommend you go [check it out](https://github.com/alpinejs/alpine). Its been described as "Tailwind for JavaScript", allowing you to add/use some simple directives to gain some some powerful reactive features that you would normally only get in something like Vue or React.
+
+While Alpine really does work like magic, one thing I noticed right away was its lack of built-in state management. That is where [Spruce](https://github.com/ryangjchandler/spruce) comes in.
+
+With Alpine we would typically initialize a component using the `x-data` directive and pass an object either directly or through a function. The data in this object becomes available to the children, and we can use in other Alpine directives.
+
+```html
+<!-- Without Spruce -->
+<div x-data="{ foo: 'testing'}">
+  <span x-text="foo"></span>
+</div>
+```
+
+However this offers us very little in the way of managing our state, for even the simplest of needs. Spruce allows us to create a store, create an Alpine component, and pass that state to the component.
+
+```html
+<!-- With Spruce -->
+<div x-data="{}" x-subscribe>
+  <span x-text="$store.application.foo"></span>
+</div>
+
+<script>
+  Spruce.store('application', {
+    foo: 'bar',
+  });
+</script>
+```
+
+## Building a Demo
+
+This is all great, but maybe its better to see a working example. We are going to run through a quick example to see how you might use state management in Alpine. And of course that leads us to create a very, very simple chat demo.
+
+### Setting Up the Layout
+
+Before we get too into the weeds, I just like to get started by sketching out the general layout of the component. In this demo we will be using [Tailwind CSS](https://github.com/tailwindcss/tailwindcss).
+
+```html
+<!-- Wrapper -->
+<div class="absolute inset-0 mx-auto flex h-screen max-w-4xl flex-col overflow-hidden">
+  <!-- Header -->
+  <div class="sticky top-0 w-full bg-gray-800 py-4 px-3 text-center text-lg text-white shadow-lg">
+    Temple Chat
+  </div>
+  <!-- Body -->
+  <div class="flex h-full flex-grow flex-col justify-end overflow-y-auto border bg-white">
+    <ul class="overflow-y-auto" id="chat">
+      <li class="border-gray flex w-full border-t py-4 px-5">
+        <!-- Avatar will go below -->
+        <!-- <img class="w-10 h-10 rounded" src="" /> -->
+        <div class="ml-4">
+          <div class="flex items-center text-sm text-gray-500">
+            <div class="mr-2">
+              <!-- Username will go here -->
+            </div>
+            <div class="mr-2 text-gray-300">|</div>
+            <div>
+              <!-- Timestamp will go here -->
+            </div>
+          </div>
+          <div class="mt-1">
+            <!-- Message will go here -->
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="bg-gray-500 py-5 px-5">
+    <input class="w-full rounded py-3 px-4 text-lg" placeholder="Type and then press enter" />
+  </div>
+</div>
+```
+
+### Creating Our Store
+
+With our template in place, we can now focus on getting our store set up. This will include empty state to start. We will eventually store our messages in `messages`, and `text` will keep hold our text field state. More on that later.
+
+```html
+<script>
+  Spruce.store('chat', {
+    messages: [],
+    text: '',
+  });
+</script>
+```
+
+For this sake of this example, though, we are going to populate our store with some initial state.
+
+```js
+<script>
+  // Define message array
+  const messages = [
+    {
+      user: '@anakin',
+      message: 'Which program do Jedi use to open PDF files? ...Adobe Wan Kenobi. 🤣',
+      timestamp: 'Apr 15, 2020 6:32 PM',
+      avatar: 'https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png/revision/latest/zoom-crop-down/width/100/height/100'
+    },
+    {
+      user: '@mace',
+      message: 'I do not understand. But nor do I care.',
+      timestamp: 'Apr 15, 2020 6:47 PM',
+      avatar: 'https://vignette.wikia.nocookie.net/starwars/images/f/fc/Mace_Windu.jpg/revision/latest/zoom-crop-down/width/100/height/100'
+    },
+    {
+      user: '@obi',
+      message: 'That is not funny Anakin. Stop using the Jedi group chat as a place for your silly jokes.',
+      timestamp: 'Apr 15, 2020 7:02 PM',
+      avatar: 'https://vignette.wikia.nocookie.net/starwars/images/3/3d/You_will_be_a_Jedi.png/revision/latest/zoom-crop-down/width/100/height/100'
+    },
+    {
+      user: '@yoda',
+      message: 'Laughing at you, Obi Wan, I am',
+      timestamp: 'Apr 15, 2020 7:10 PM',
+      avatar: 'https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png/revision/latest/zoom-crop-down/width/100/height/100'
+    }
+  ];
+
+  // Set initial 'messages' state in our store
+  Spruce.store('chat', {
+      messages: messages,
+      text: '',
+  });
+</script>
+```
+
+### Connecting Store to Alpine
+
+Now we have our very a basic store set up with some initial state. At this point we can start thinking about how we connect the store and its state to the markup. This is where Spruce works its magic with Alpine.
+
+Considering how we normally pass data into an Alpine component, we don't need to change much to connect to our store. I am going to repeat an example from above.
+
+```html
+<!-- Without Spruce -->
+<div x-data="{ foo: 'testing'}">
+  <span x-text="foo"></span>
+</div>
+
+<!-- With Spruce -->
+<div x-data="{}" x-subscribe>
+  <span x-text="$store.application.foo"></span>
+</div>
+
+<script>
+  Spruce.store('application', {
+    foo: 'bar',
+  });
+</script>
+```
+
+We will no longer pass data your the `x-data` directive because it is no longer in charge of that. However we still need the to include `x-data` to tell Alpine that we want to initialize a new component scope, so don't forget that.
+
+Spruce will then take care communicating state when we add the `x-subscribe` directive. When we do this, the child elements can access the data in our store. Now to connect it to our template markup from before using Alpine.
+
+#### Displaying Messages
+
+Lets start from the top and get our messages displaying correctly.
+
+```html
+...
+<ul class="overflow-y-auto" x-data="{}" x-subscribe id="chat">
+  <template x-for="(item, index) in $store.chat.messages">
+    <li class="border-gray flex w-full border-t py-4 px-5">
+      <img class="h-10 w-10 rounded" x-bind:src="item.avatar" />
+      <div class="ml-4">
+        <div class="flex items-center text-sm text-gray-500">
+          <div class="mr-2" x-text="item.user"></div>
+          <div class="mr-2 text-gray-300">|</div>
+          <div x-text="item.timestamp"></div>
+        </div>
+        <div class="mt-1" x-text="item.message"></div>
+      </div>
+    </li>
+  </template>
+  <template x-if="$store.chat.text">
+    <li
+      class="border-gray flex w-full border-t py-4 px-5 text-gray-500"
+      x-transition:enter="transition ease-out duration-700"
+      x-transition:enter-start="opacity-0 transform h-0"
+      x-transition:enter-end="opacity-100 transform h-auto"
+    >
+      Someone is typing...
+    </li>
+  </template>
+</ul>
+...
+```
+
+You might notice we also added a "Someone is typing" message in the example above. This is an Alpine template which checks the store to see if there is text in the input field. If so, it will render a nice message using Alpine transitions. Just a nice touch and another way to use the store.
+
+#### Adding New Messages
+
+That gets our initial state hooked up. Now we need to work out a way to add new messages via the input field. We can create a simple function that will copy the initial state from the store, push a new message from the input, and then update the store with that updated array.
+
+```js
+function addMessage() {
+  // Create a copy of the messages
+  const messages = Spruce.store('chat').messages;
+  const element = document.getElementById('chat');
+  // Push a new message to that copy with the value from the input
+  messages.push({
+    user: '@ahsoka',
+    message: Spruce.store('chat').text,
+    timestamp: moment().format('lll'),
+    avatar:
+      'https://vignette.wikia.nocookie.net/starwars/images/7/7a/AhsokaHS_Rebels.png/revision/latest/zoom-crop-down/width/100/height/100',
+  });
+  // Update the store with the new messages array
+  Spruce.store('chat').messages = messages;
+  // Clear the text from the input
+  Spruce.store('chat').text = '';
+  // Scroll to the bottom
+  element.scrollTop = element.scrollHeight;
+}
+```
+
+To call this function we can use Alpine's `x-on` directive to listen to the Enter keydown.
+
+```html
+<div class="bg-gray-500 py-5 px-5" x-data="{}" x-subscribe>
+  <input
+    x-on:keydown.enter="[$store.chat.text ? addMessage() : null]"
+    class="w-full rounded py-3 px-4 text-lg"
+    x-model="$store.chat.text"
+    placeholder="Type and then press enter"
+  />
+</div>
+```
+
+### Putting it all Together
+
+Now we can put everything together. I've already done this in a [CodePen](https://codepen.io/natedunn/pen/dyGgPqq?editors=1010) which is embedded below as well.
+
+<iframe
+  height='650'
+  className='w-full'
+  scrolling='no'
+  title='Alpine + Spruce'
+  src='https://codepen.io/natedunn/embed/dyGgPqq?height=265&theme-id=dark&default-tab=result'
+  frameborder='no'
+  allowtransparency='true'
+  allowFullScreen={true}
+>
+  See the Pen <a href='https://codepen.io/natedunn/pen/dyGgPqq'>Alpine + Spruce</a> by Nate Dunn (
+  <a href='https://codepen.io/natedunn'>@natedunn</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## Conclusion
+
+Hopefully this really show what you can accomplish with adding just a little bit of state management to Alpine. You might be hard-pressed to build a full SPA or replace your existing flow of Vue or React. But in the cases where you need to pass data around to multiple Alpine components, I can't think of a better way. This might be really helpful in a Wordpress theme, or in various spots of a Laravel app.
+
+Hope this post was interesting or helpful. Let me know on [Twitter](https://twitter.com/natedunn) if you plan to Spruce with Alpine, or if you already do. Would love to hear your great ideas.
+
+✌️

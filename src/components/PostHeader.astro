@@ -1,0 +1,18 @@
+---
+import Link from './Link.astro';
+
+type Props = {
+  title: string;
+};
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class='space-y-2 border-b border-zinc-200 dark:border-zinc-700 pb-6 mb-8'>
+  <h1 class='text-4xl font-bold'>
+    <Link accentColor={false} href='/posts' class='opacity-50 hover:opacity-100'>Posts</Link>
+    <span class='opacity-50'>›</span>
+    {title}
+  </h1>
+  <Link class='text-lg' href='/posts'>← Read other posts</Link>
+</div>
