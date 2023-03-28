@@ -27,6 +27,7 @@ html.dark {
 }
 
 /* Overides for Tailwind prose */
+.prose,
 .prose h1,
 .prose h2,
 .prose h3,
