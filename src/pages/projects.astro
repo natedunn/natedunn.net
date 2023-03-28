@@ -58,7 +58,7 @@ const projects = [
       {
         projects.map((p) => {
           return (
-            <div class='flex items-center space-x-6'>
+            <div class='flex flex-col md:flex-row md:items-center md:space-x-6'>
               <Image src={p.image} alt={p.title} aspectRatio='3:2' width={300} height={200} />
               <div>
                 <h3 class='font-bold text-2xl mt-2'>{p.title}</h3>
