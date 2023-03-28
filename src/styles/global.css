@@ -40,5 +40,8 @@ html.dark {
   text-decoration: none;
 }
 .prose a:hover {
-  @apply inline-block all:underline all:outline-none underline-offset-2 decoration-[0.1em] hover:text-accent-active;
+  @apply inline all:underline all:outline-none underline-offset-2 decoration-[0.1em] hover:text-accent-active;
+}
+.prose strong {
+  color: var(--color-primary);
 }
