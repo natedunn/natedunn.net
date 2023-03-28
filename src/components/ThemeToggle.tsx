@@ -18,7 +18,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      class='px-2 py-2 text-primary rounded-full hover:ring-2 hover:ring-primary focus:ring-2 focus:ring-primary transition-all ease-in-out duration-150'
+      class='px-1 py-1 md:px-2 md:py-2 text-primary rounded-full hover:ring-2 hover:ring-primary focus:ring-2 focus:ring-primary transition-all ease-in-out duration-150'
       onClick={handleClick}
     >
       {theme === 'light' ? (
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
           viewBox='0 0 24 24'
           stroke-width='1.5'
           stroke='currentColor'
-          class='w-6 h-6'
+          class='w-4 md:w-6 h-4 md:h-6'
         >
           <path
             stroke-linecap='round'
@@ -45,7 +45,7 @@ export default function ThemeToggle() {
           viewBox='0 0 24 24'
           stroke-width='1.5'
           stroke='currentColor'
-          class='w-6 h-6'
+          class='w-4 md:w-6 h-4 md:h-6'
         >
           <path
             stroke-linecap='round'
