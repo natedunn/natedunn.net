@@ -1,19 +1,21 @@
-import { useEffect, useState } from 'preact/hooks';
+/** @jsxImportSource solid-js */
+
+import { createEffect, createSignal } from 'solid-js';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'light');
+  const [theme, setTheme] = createSignal(localStorage.getItem('theme') ?? 'light');
 
   const handleClick = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(theme() === 'light' ? 'dark' : 'light');
   };
 
-  useEffect(() => {
-    if (theme === 'dark') {
+  createEffect(() => {
+    if (theme() === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('theme', theme());
   }, [theme]);
 
   return (
@@ -21,7 +23,7 @@ export default function ThemeToggle() {
       class='px-1 py-1 md:px-2 md:py-2 text-primary rounded-full hover:ring-2 hover:ring-primary focus:ring-2 focus:ring-primary transition-all ease-in-out duration-150'
       onClick={handleClick}
     >
-      {theme === 'light' ? (
+      {theme() === 'light' ? (
         // Moon icon
         <svg
           xmlns='http://www.w3.org/2000/svg'
