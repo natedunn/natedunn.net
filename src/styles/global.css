@@ -26,6 +26,10 @@ html.dark {
   background-color: theme('colors.zinc.900');
 }
 
+body.overlay {
+  overflow: hidden;
+}
+
 .link {
   @apply inline-block all:underline all:outline-none underline-offset-2 decoration-[0.1em];
 }

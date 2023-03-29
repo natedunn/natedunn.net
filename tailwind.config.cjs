@@ -24,7 +24,7 @@ module.exports = {
       addVariant('hocus', ['&:hover', '&:focus']);
       addVariant('factive', ['&:active', '&:focus']);
       addVariant('all', ['&:active', '&:focus', '&:hover']);
-      addVariant('list', ['body.list-page &']);
+      addVariant('overlay', ['body.overlay &']);
     }),
   ],
 };

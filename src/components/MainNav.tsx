@@ -1,12 +1,11 @@
 /** @jsxImportSource solid-js */
 
-import { createSignal } from 'solid-js';
+import { createResource, createSignal, onCleanup, onMount } from 'solid-js';
 import clsx from 'clsx';
 import ThemeToggle from './ThemeToggle';
+import { createEffect } from 'solid-js';
 
 // const currentPath = new URL(Astro.request.url).pathname.slice(1);
-
-const currentPath = import.meta.url;
 
 const navItems = [
   {
@@ -31,16 +30,60 @@ const navItems = [
   },
 ];
 
-export function MainNav() {
+export function MainNav({ currentPath }: { currentPath: string }) {
   const [isMenuOpen, setIsMenuOpen] = createSignal(false);
+
+  const [rect, setRect] = createSignal({
+    height: 0,
+    width: 0,
+  });
+
+  createEffect(() => {
+    if (rect().width > 768) {
+      setIsMenuOpen(false);
+    }
+    if (isMenuOpen()) {
+      document.body.classList.add('overlay');
+    } else {
+      document.body.classList.remove('overlay');
+    }
+  });
+
+  onMount(() => {
+    setRect({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+
+    const handleResize = () => {
+      setTimeout(() => {
+        setRect({
+          height: window.innerHeight,
+          width: window.innerWidth,
+        });
+      }, 500);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    onCleanup(() => {
+      window.removeEventListener('resize', handleResize);
+    });
+  });
 
   return (
     <nav>
-      <div class='w-full flex items-center justify-evenly space-x-3 md:space-x-4 border-b border-zinc-200 dark:border-zinc-700 pb-8'>
+      <div
+        class='overlay:absolute overlay:inset-0 overlay:bg-zinc-900 overlay:opacity-50 z-10 transition-all ease-in-out duration-300 cursor-pointer'
+        onClick={() => {
+          setIsMenuOpen(false);
+        }}
+      ></div>
+      <div class='relative w-full flex items-center justify-evenly space-x-0 md:space-x-4 border-b border-zinc-200 dark:border-zinc-700 pb-4 md:pb-8'>
         <div class='flex'>
           <a href='/' class='focus:outline-none'>
             <svg
-              class='w-[30px] sm:w-[40px] md:w-[50px] text-primary'
+              class='transition-all ease-linear duration-150 w-[30px] sm:w-[40px] md:w-[50px] text-primary'
               viewBox='0 0 208 136'
               fill='transparent'
               xmlns='http://www.w3.org/2000/svg'
@@ -54,14 +97,43 @@ export function MainNav() {
             </svg>
           </a>
         </div>
-        <div>
-          <button>Toggle</button>
+        <div class='md:hidden flex-auto text-center flex items-center justify-center'>
+          <button
+            class={clsx([
+              'transition-all inline-block ease-in-out duration-200 hover:bg-zinc-900 hover:ring-4 rounded-md ring-zinc-900 hover:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:ring-zinc-100 dark:hover:text-zinc-900',
+              {
+                'bg-zinc-900 text-zinc-100 dark:ring-zinc-100 !ring-4 dark:bg-zinc-100 dark:text-zinc-900':
+                  isMenuOpen(),
+              },
+            ])}
+            onClick={() => setIsMenuOpen(!isMenuOpen())}
+          >
+            <svg class={clsx(['w-6 h-6', isMenuOpen() ?? ''])} fill='none' viewBox='0 0 24 24'>
+              <path
+                stroke='currentColor'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='1.5'
+                d='M4.75 5.75h14.5m-14.5 12.5h14.5M4.75 12h14.5'
+              />
+            </svg>
+          </button>
         </div>
-        <ul class='flex items-center justify-start'>
+        <ul
+          class={clsx(
+            [
+              'justify-start hidden absolute w-full top-12 bg-white dark:bg-zinc-800 rounded-lg z-20',
+              'md:items-center md:flex md:item-center md:relative md:bg-transparent dark:md:bg-transparent md:top-0 md:w-auto',
+            ],
+            {
+              '!flex py-1 md:py-0 flex-col md:flex-row': isMenuOpen(),
+            }
+          )}
+        >
           {navItems.map((item) => (
             <a
               class={clsx(
-                'px-2 sm:px-3 md:px-4 py-1 text-sm sm:text-base md:text-lg opacity-80 hocus:opacity-100 link',
+                'px-5 py-3 m-2 hover:bg-zinc-200 rounded-lg dark:hover:bg-zinc-900 md:px-4 md:py-1 text-base md:text-lg opacity-80 hocus:opacity-100 md:!bg-transparent link',
                 `/${currentPath}` === item.href
                   ? 'underline select-none pointer-events-none text-black dark:text-white !opacity-100'
                   : ''
@@ -72,7 +144,7 @@ export function MainNav() {
             </a>
           ))}
         </ul>
-        <div class='flex justify-end grow basis-0'>
+        <div class='flex justify-end md:grow md:basis-0'>
           <ThemeToggle />
         </div>
       </div>
