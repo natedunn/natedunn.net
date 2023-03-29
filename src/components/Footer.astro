@@ -9,14 +9,8 @@ import Link from './Link.astro';
 </style>
 
 <footer
-  class='dark:text-white/75 text-black/75 flex items-center justify-between border-t border-zinc-200 dark:border-zinc-700 pt-8'
+  class='dark:text-white/75 text-black/75 flex flex-wrap flex-col md:flex-row-reverse gap-4 items-center justify-between border-t border-zinc-200 dark:border-zinc-700 pt-8'
 >
-  <ul class='flex justify-start items-center space-x-6 divide-x-2 dark:divide-zinc-100/20'>
-    <li>
-      © {new Date().getFullYear()} Nate Dunn. All rights reserved.
-    </li>
-    <li>Built with love in{` `} 🇲🇽</li>
-  </ul>
   <ul class='flex justify-start items-center space-x-6 divide-x-2 dark:divide-zinc-100/20'>
     <li>
       <Link href='/connect'>Connect</Link>
@@ -24,5 +18,11 @@ import Link from './Link.astro';
     <li>
       <Link href='/colophon'>Colophon</Link>
     </li>
+  </ul>
+  <ul class='flex justify-start items-center space-x-6 divide-x-2 dark:divide-zinc-100/20'>
+    <li>
+      © {new Date().getFullYear()} Nate Dunn. All rights reserved.
+    </li>
+    <li>Built with love in{` `} 🇲🇽</li>
   </ul>
 </footer>
