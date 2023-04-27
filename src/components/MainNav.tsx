@@ -79,11 +79,11 @@ export function MainNav({ currentPath }: { currentPath: string }) {
           setIsMenuOpen(false);
         }}
       ></div>
-      <div class='relative w-full flex items-center justify-evenly space-x-0 md:space-x-4 border-b border-zinc-200 dark:border-zinc-700 pb-4 md:pb-8'>
+      <div class='relative w-full flex items-center justify-evenly space-x-0 md:space-x-4 border-b border-zinc-200 dark:border-zinc-700 pb-2'>
         <div class='flex'>
           <a href='/' class='focus:outline-none'>
             <svg
-              class='transition-all ease-linear duration-150 w-[30px] sm:w-[40px] md:w-[50px] text-primary'
+              class='transition-all ease-linear duration-150 w-[30px] sm:w-[40px] text-primary'
               viewBox='0 0 208 136'
               fill='transparent'
               xmlns='http://www.w3.org/2000/svg'
