@@ -10,7 +10,7 @@ import { createEffect } from 'solid-js';
 const navItems = [
   {
     text: 'About',
-    href: '/',
+    href: '/about',
   },
   {
     text: 'Projects',
