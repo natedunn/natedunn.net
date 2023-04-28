@@ -10,7 +10,7 @@ import { createEffect } from 'solid-js';
 const navItems = [
   {
     text: 'About',
-    href: '/about',
+    href: '/',
   },
   {
     text: 'Projects',
@@ -133,7 +133,7 @@ export function MainNav({ currentPath }: { currentPath: string }) {
           {navItems.map((item) => (
             <a
               class={clsx(
-                'px-5 py-3 m-2 hover:bg-zinc-200 rounded-lg dark:hover:bg-zinc-900 md:px-4 md:py-1 text-base md:text-lg opacity-80 hocus:opacity-100 md:!bg-transparent link',
+                'px-5 py-3 m-2 hover:bg-zinc-200 rounded-lg dark:hover:bg-zinc-900 md:px-2 md:py-1 text-sm md:text-base opacity-80 hocus:opacity-100 md:!bg-transparent link',
                 `/${currentPath}` === item.href
                   ? 'underline select-none pointer-events-none text-black dark:text-white !opacity-100'
                   : ''
