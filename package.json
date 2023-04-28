@@ -2,6 +2,7 @@
   "name": "natedunn.net",
   "version": "69.0.0",
   "private": false,
+  "type": "module",
   "author": {
     "name": "Nate Dunn",
     "url": "https://natedunn.net"
@@ -12,37 +13,24 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "codegen": "graphql-codegen --require dotenv/config --config codegen.ts",
     "sync": "astro sync"
   },
   "dependencies": {
-    "@astrojs/image": "^0.16.2",
-    "@astrojs/mdx": "^0.18.2",
-    "@astrojs/node": "^5.1.0",
+    "@astrojs/image": "^0.16.6",
+    "@astrojs/mdx": "^0.19.0",
+    "@astrojs/node": "^5.1.1",
     "@astrojs/preact": "^2.1.0",
     "@astrojs/prefetch": "^0.2.1",
-    "@astrojs/sitemap": "^1.2.1",
+    "@astrojs/sitemap": "^1.2.2",
     "@astrojs/solid-js": "^2.1.0",
     "@astrojs/tailwind": "^3.1.1",
     "@tailwindcss/typography": "^0.5.9",
-    "@urql/core": "^3.2.2",
-    "astro": "^2.1.7",
+    "astro": "^2.3.2",
     "clsx": "^1.2.1",
-    "graphql": "^16.6.0",
-    "graphql-config": "^4.5.0",
-    "graphql-tag": "^2.12.6",
-    "preact": "^10.13.1",
-    "sharp": "^0.31.0",
-    "solid-js": "^1.4.3",
-    "tailwindcss": "^3.2.7",
+    "preact": "^10.13.2",
+    "sharp": "^0.31.3",
+    "solid-js": "^1.7.3",
+    "tailwindcss": "^3.3.2",
     "zod": "^3.21.4"
-  },
-  "devDependencies": {
-    "@graphql-codegen/cli": "^3.2.2",
-    "@graphql-codegen/introspection": "3.0.1",
-    "@graphql-codegen/typescript": "3.0.2",
-    "@graphql-codegen/typescript-operations": "3.0.2",
-    "@graphql-codegen/typescript-urql": "^3.7.3",
-    "@graphql-codegen/urql-introspection": "^2.2.1"
   }
 }
