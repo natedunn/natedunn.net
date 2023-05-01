@@ -2,7 +2,7 @@
 import Footer from '@components/Footer.astro';
 import { MainNav } from '@components/MainNav';
 
-import '../styles/global.css';
+import '../styles/_main.css';
 import ThemeToggle from '@components/ThemeToggle';
 export interface Props {
   title: string;
@@ -54,7 +54,7 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
         <div class='p-8 flex flex-col'>
           <h1>
             <span class='inline-block w-full font-medium text-3xl md:text-4xl !leading-[1.2]'>
-              <span class='text-gradient'>Nate</span> is making things <br />for the internet.
+              <span class='text-gradient'>Nate</span> is making things <br />on the internet.
             </span>
           </h1>
           <div class='mt-auto'>
