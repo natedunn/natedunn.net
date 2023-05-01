@@ -42,7 +42,7 @@ export function MainNav({ currentPath }: { currentPath: string }) {
     >
       <Show when={open()}>
         <div
-          class='absolute inset-0 bg-zinc-900 opacity-50 z-10 cursor-pointer'
+          class='absolute inset-0 bg-drop-900 opacity-50 z-10 cursor-pointer'
           onClick={() => {
             isOpen(false);
           }}
@@ -93,7 +93,7 @@ export function MainNav({ currentPath }: { currentPath: string }) {
         exitToClass='opacity-0 scale-95'
       >
         <Show when={open()}>
-          <div class='flex flex-col gap-2 absolute z-30 top-0 right-0 p-8 bg-zinc-950 rounded-2xl shadow-xl'>
+          <div class='flex flex-col gap-2 absolute z-30 top-0 right-0 p-8 bg-drop-950 rounded-2xl shadow-xl'>
             {navItems.map((item) => (
               <a
                 class={clsx(

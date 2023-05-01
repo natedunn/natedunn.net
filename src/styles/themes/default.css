@@ -24,33 +24,35 @@ html[data-theme='default'] {
   --secondary-900: theme('colors.zinc.900');
   --secondary-950: theme('colors.zinc.950');
 
-  --neutral-50: theme('colors.gray.50');
-  --neutral-100: theme('colors.gray.100');
-  --neutral-200: theme('colors.gray.200');
-  --neutral-300: theme('colors.gray.300');
-  --neutral-400: theme('colors.gray.400');
-  --neutral-500: theme('colors.gray.500');
-  --neutral-600: theme('colors.gray.600');
-  --neutral-700: theme('colors.gray.700');
-  --neutral-800: theme('colors.gray.800');
-  --neutral-900: theme('colors.gray.900');
-  --neutral-950: theme('colors.gray.950');
+  --drop-50: theme('colors.rgbZinc.50');
+  --drop-100: theme('colors.rgbZinc.100');
+  --drop-200: theme('colors.rgbZinc.200');
+  --drop-300: theme('colors.rgbZinc.300');
+  --drop-400: theme('colors.rgbZinc.400');
+  --drop-500: theme('colors.rgbZinc.500');
+  --drop-600: theme('colors.rgbZinc.600');
+  --drop-700: theme('colors.rgbZinc.700');
+  --drop-800: theme('colors.rgbZinc.800');
+  --drop-900: theme('colors.rgbZinc.900');
+  --drop-950: theme('colors.rgbZinc.950');
 
   /* old shit */
-  --color-primary: theme('colors.zinc.200');
+  /* --color-primary: theme('colors.zinc.200');
   --color-primary-active: theme('colors.bronze.600');
   --color-primary-contrast: theme('colors.zinc.900');
 
   --color-accent: theme('colors.blue.500');
-  --color-accent-active: theme('colors.blue.900');
+  --color-accent-active: theme('colors.blue.900'); */
 
   color: theme('colors.zinc.900');
   background-color: theme('colors.white');
 }
+
+/* Dark */
 html.dark,
 html.dark[data-theme='default'] {
   /* old shit */
-  --color-primary: theme('colors.zinc.900');
+  /* --color-primary: theme('colors.zinc.900');
   --color-primary-active: theme('colors.bronze.600');
   --color-primary-contrast: theme('colors.zinc.100');
 
@@ -58,8 +60,8 @@ html.dark[data-theme='default'] {
   --color-secondary-active: theme('colors.zinc.900');
 
   --color-accent: theme('colors.blue.200');
-  --color-accent-active: theme('colors.blue.400');
+  --color-accent-active: theme('colors.blue.400'); */
 
-  color: theme('colors.zinc.100');
-  background-color: theme('colors.zinc.900');
+  color: theme('colors.white');
+  background-color: theme('colors.neutral.900');
 }
