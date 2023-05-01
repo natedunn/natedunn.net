@@ -1,0 +1,96 @@
+---
+import Footer from '@components/Footer.astro';
+import { MainNav } from '@components/MainNav';
+
+import '../styles/global.css';
+import ThemeToggle from '@components/ThemeToggle';
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const currentPath = new URL(Astro.request.url).pathname.slice(1);
+---
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  })();
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+  window.localStorage.setItem('theme', theme);
+</script>
+
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title} — Nate Dunn</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&display=swap'
+      rel='stylesheet'
+    />
+  </head>
+
+  <body class='flex flex-col h-full'>
+    <header class='container flex w-full gap-6 mt-10'>
+      <div class='flex-auto box !p-0 flex overflow-hidden'>
+        <div class='px-8 pb-8 pt-10 bg-zinc-400/10 dark:bg-zinc-800 rounded-l-2xl text-5xl'>👋</div>
+        <div class='p-8 flex flex-col'>
+          <h1>
+            <span class='inline-block w-full font-medium text-3xl md:text-4xl !leading-[1.2]'>
+              <span class='text-gradient'>Nate</span> is making things <br />for the internet.
+            </span>
+          </h1>
+          <div class='mt-auto'>
+            <a href='/about' class='link link-accent'>Learn more about me</a>
+          </div>
+        </div>
+      </div>
+      <div class='flex flex-col gap-6'>
+        <div class='flex gap-6'>
+          <div class='box flex items-center justify-center'>
+            <ThemeToggle client:load />
+          </div>
+          <div class='box flex items-center justify-center'>
+            <ThemeToggle client:load />
+          </div>
+          <MainNav currentPath={currentPath} client:load />
+        </div>
+        <div class='box flex items-center gap-4'>
+          <span class='relative flex h-4 w-4'>
+            <span
+              class='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'
+            >
+            </span>
+            <span class='relative inline-flex rounded-full h-4 w-4 bg-green-500'></span>
+          </span>
+          <div>Open for projects</div>
+        </div>
+      </div>
+    </header>
+    <div class='container flex-auto'>
+      <slot />
+    </div>
+    <div class='container mt-6 mb-10'>
+      <div class='box mt-auto'>
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>

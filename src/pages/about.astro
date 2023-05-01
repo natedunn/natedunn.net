@@ -1,0 +1,54 @@
+---
+import Link from '@components/Link.astro';
+import { Image } from '@astrojs/image/components';
+import LayoutV2 from '@layouts/LayoutV2.astro';
+---
+
+<LayoutV2 title='About'>
+  <main class='max-w-2xl'>
+    <div
+      class='flex items-center border-b border-zinc-200 dark:border-zinc-700 pb-6 mb-8 space-x-6'
+    >
+      <Image
+        class='rounded-full'
+        src='/me-square.webp'
+        alt='Nate Dunn'
+        aspectRatio='1:2'
+        width={76}
+        height={76}
+        quality={100}
+      />
+      <div class='space-y-1'>
+        <h1 class='text-4xl font-bold'>Nate Dunn</h1>
+        <h2 class='text-lg'>Full stack web developer</h2>
+      </div>
+    </div>
+
+    <div class='space-y-6 text-lg font-light'>
+      <p>
+        I am a <span class='font-medium'>full stack web developer</span>, originally from Phoenix,
+        Arizona but now living in Mexico City.
+      </p>
+      <p>
+        I build applications and websites with a careful eye for design and user experience. I have {
+          new Date().getFullYear() - 2012
+        } years of professional experience in various web technologies. These days I specialize in <span
+          class='font-semibold'
+        >
+          React
+        </span> and <span class='font-semibold'>Next.js</span>.
+      </p>
+      <p>
+        I am an avid learner and experimenter. But most of all, I'm passionate about helping make
+        the web a more beautiful, performant, and accessible experience for everyone.
+      </p>
+      <p>
+        If you have anything that you would like to connect with me on, please <Link
+          href='/connect'
+        >
+          get in touch
+        </Link>.
+      </p>
+    </div>
+  </main>
+</LayoutV2>

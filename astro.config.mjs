@@ -10,7 +10,9 @@ export default defineConfig({
   site: import.meta.env.PUBLIC_PROD_URL,
   integrations: [
     mdx(),
-    tailwind(),
+    tailwind({
+      config: { applyBaseStyles: false },
+    }),
     preact({
       compat: true,
     }),

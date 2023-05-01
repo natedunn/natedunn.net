@@ -19,10 +19,7 @@ export default function ThemeToggle() {
   }, [theme]);
 
   return (
-    <button
-      class='px-1 py-1 md:px-2 md:py-2 text-primary rounded-full hover:ring-2 hover:ring-primary focus:ring-2 focus:ring-primary transition-all ease-in-out duration-150'
-      onClick={handleClick}
-    >
+    <button class='button aspect-square' onClick={handleClick}>
       {theme() === 'light' ? (
         // Moon icon
         <svg
@@ -56,6 +53,7 @@ export default function ThemeToggle() {
           />
         </svg>
       )}
+      <span class='sr-only'>Toggle theme</span>
     </button>
   );
 }
