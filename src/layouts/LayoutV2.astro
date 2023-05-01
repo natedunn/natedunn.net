@@ -3,7 +3,7 @@ import Footer from '@components/Footer.astro';
 import { MainNav } from '@components/MainNav';
 
 import '../styles/_main.css';
-import ThemeToggle from '@components/ThemeToggle';
+import { ModeToggle } from '@components/ModeToggle';
 export interface Props {
   title: string;
 }
@@ -13,10 +13,11 @@ const { title } = Astro.props;
 const currentPath = new URL(Astro.request.url).pathname.slice(1);
 ---
 
+<!-- Mode -->
 <script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+  const mode = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('mode')) {
+      return localStorage.getItem('mode');
     }
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
@@ -24,11 +25,19 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
     return 'light';
   })();
 
-  if (theme === 'light') {
+  if (mode === 'light') {
     document.documentElement.classList.remove('dark');
   } else {
     document.documentElement.classList.add('dark');
   }
+  window.localStorage.setItem('mode', mode);
+</script>
+
+<!-- Theme -->
+<script is:inline>
+  const theme = (() => localStorage.getItem('theme') ?? 'default')();
+
+  document.documentElement.setAttribute('data-theme', theme);
   window.localStorage.setItem('theme', theme);
 </script>
 
@@ -65,10 +74,10 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
       <div class='flex flex-col gap-6'>
         <div class='flex gap-6'>
           <div class='box flex items-center justify-center'>
-            <ThemeToggle client:load />
+            <ModeToggle client:load />
           </div>
           <div class='box flex items-center justify-center'>
-            <ThemeToggle client:load />
+            <ModeToggle client:load />
           </div>
           <MainNav currentPath={currentPath} client:load />
         </div>

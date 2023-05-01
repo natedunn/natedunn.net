@@ -1,4 +1,5 @@
-html {
+html,
+html[data-theme='default'] {
   --primary-50: theme('colors.bronze.50');
   --primary-100: theme('colors.bronze.100');
   --primary-200: theme('colors.bronze.200');
@@ -45,20 +46,20 @@ html {
 
   color: theme('colors.zinc.900');
   background-color: theme('colors.white');
+}
+html.dark,
+html.dark[data-theme='default'] {
+  /* old shit */
+  --color-primary: theme('colors.zinc.900');
+  --color-primary-active: theme('colors.bronze.600');
+  --color-primary-contrast: theme('colors.zinc.100');
 
-  &.dark {
-    /* old shit */
-    --color-primary: theme('colors.zinc.900');
-    --color-primary-active: theme('colors.bronze.600');
-    --color-primary-contrast: theme('colors.zinc.100');
+  --color-secondary: theme('colors.zinc.700');
+  --color-secondary-active: theme('colors.zinc.900');
 
-    --color-secondary: theme('colors.zinc.700');
-    --color-secondary-active: theme('colors.zinc.900');
+  --color-accent: theme('colors.blue.200');
+  --color-accent-active: theme('colors.blue.400');
 
-    --color-accent: theme('colors.blue.200');
-    --color-accent-active: theme('colors.blue.400');
-
-    color: theme('colors.zinc.100');
-    background-color: theme('colors.zinc.900');
-  }
+  color: theme('colors.zinc.100');
+  background-color: theme('colors.zinc.900');
 }

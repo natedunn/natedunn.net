@@ -1,4 +1,4 @@
-html.royal.dark {
+html.dark[data-theme='royal'] {
   --primary-50: theme('colors.royal.50');
   --primary-100: theme('colors.royal.100');
   --primary-200: theme('colors.royal.200');
