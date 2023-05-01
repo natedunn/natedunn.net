@@ -4,6 +4,7 @@ import { MainNav } from '@components/MainNav';
 
 import '../styles/_main.css';
 import { ModeToggle } from '@components/ModeToggle';
+import { ThemeSwitcher } from '@components/ThemeSwitcher';
 export interface Props {
   title: string;
 }
@@ -77,7 +78,7 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
             <ModeToggle client:load />
           </div>
           <div class='box flex items-center justify-center'>
-            <ModeToggle client:load />
+            <ThemeSwitcher client:load />
           </div>
           <MainNav currentPath={currentPath} client:load />
         </div>
