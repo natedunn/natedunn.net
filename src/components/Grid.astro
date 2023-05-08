@@ -3,11 +3,16 @@ import clsx from 'clsx';
 
 type Props = {
   class?: string;
+  custom?: boolean;
 };
 
-const { class: className } = Astro.props;
+const { class: className, custom } = Astro.props;
 ---
 
-<div class={clsx('grid grid-cols-12 w-full gap-6 mt-6', className)}>
+<div
+  class={clsx('grid w-full gap-6', className, {
+    'grid-cols-12': !custom,
+  })}
+>
   <slot />
 </div>

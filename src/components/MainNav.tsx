@@ -6,6 +6,10 @@ import { Portal } from 'solid-js/web';
 
 const navItems = [
   {
+    text: 'Home',
+    href: '/',
+  },
+  {
     text: 'About',
     href: '/about',
   },
@@ -17,10 +21,10 @@ const navItems = [
     text: 'Uses',
     href: '/uses',
   },
-  {
-    text: 'Posts',
-    href: '/posts',
-  },
+  // {
+  //   text: 'Posts',
+  //   href: '/posts',
+  // },
   {
     text: 'Connect',
     href: '/connect',
@@ -52,7 +56,7 @@ export function MainNav({ currentPath }: { currentPath: string }) {
   );
 
   return (
-    <nav class={clsx('box relative')}>
+    <nav class={clsx('relative')}>
       <Show when={open()}>
         <Portal>{overlay()}</Portal>
       </Show>

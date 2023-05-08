@@ -16,9 +16,33 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
 ---
 
 <LayoutDocument title={title} class='flex flex-col h-full'>
-  <header class='container flex w-full gap-6 mt-10'>
+  <header class='container flex flex-col md:flex-row-reverse w-full gap-6 mt-10'>
+    <div class='flex md:flex-col gap-6 flex-row-reverse'>
+      <div class='flex gap-6 w-full justify-between'>
+        <div class='box-sm flex flex-auto items-center justify-center'>
+          <ModeToggle client:load />
+        </div>
+        <div class='box-sm flex flex-auto items-center justify-center'>
+          <ThemeSwitcher client:load />
+        </div>
+        <div class='box-sm flex flex-auto items-center justify-center'>
+          <MainNav currentPath={currentPath} client:load />
+        </div>
+      </div>
+
+      <div class='box-sm hidden px-6 sm:flex items-center gap-4 h-full :w-full'>
+        <span class='relative flex h-4 w-4'>
+          <span
+            class='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'
+          >
+          </span>
+          <span class='relative inline-flex rounded-full h-4 w-4 bg-green-500'></span>
+        </span>
+        <div>Open for projects</div>
+      </div>
+    </div>
     <div class='flex-auto box !p-0 flex overflow-hidden'>
-      <div class='px-8 pb-8 pt-10 bg-drop-400/10 dark:bg-drop-800 rounded-l-2xl text-5xl'>
+      <div class='px-6 sm:px-8 pb-8 pt-10 bg-drop-400/10 dark:bg-drop-800 rounded-l-2xl text-5xl'>
         <svg
           class='transition-all ease-linear duration-150 w-[30px] sm:w-[45px] text-primary-500 dark:text-primary-500'
           viewBox='0 0 208 136'
@@ -34,43 +58,24 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
           </path>
         </svg>
       </div>
-      <div class='p-8 flex flex-col'>
+      <div class='p-8 flex flex-col justify-center sm:justify-start'>
         <h1>
-          <span class='inline-block w-full font-medium text-3xl md:text-4xl !leading-[1.2]'>
-            <span class='text-gradient'>Nate</span> is making things <br />on the internet.
+          <span class='inline-block w-full font-medium text-3xl lg:text-4xl !leading-[1.2]'>
+            <span class='text-gradient'>Nate</span> is making things <br
+              class='hidden sm:inline'
+            />on the internet.
           </span>
         </h1>
-        <div class='mt-auto'>
-          <a href='/about' class='link link-accent'>Learn more about me</a>
-        </div>
-      </div>
-    </div>
-    <div class='flex flex-col gap-6'>
-      <div class='flex gap-6'>
-        <div class='box flex items-center justify-center'>
-          <ModeToggle client:load />
-        </div>
-        <div class='box flex items-center justify-center'>
-          <ThemeSwitcher client:load />
-        </div>
-        <MainNav currentPath={currentPath} client:load />
-      </div>
-      <div class='box flex items-center gap-4'>
-        <span class='relative flex h-4 w-4'>
-          <span
-            class='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'
-          >
-          </span>
-          <span class='relative inline-flex rounded-full h-4 w-4 bg-green-500'></span>
-        </span>
-        <div>Open for projects</div>
+        <!-- <div class='mt-auto pt-6'>
+          <a href='/about' class='link link-accent'>Learn more</a>
+        </div> -->
       </div>
     </div>
   </header>
   <div class='container flex-auto'>
     <slot />
   </div>
-  <div class='container mt-6 mb-10'>
+  <div class='container mt-6 pb-10'>
     <div class='box mt-auto'>
       <Footer />
     </div>

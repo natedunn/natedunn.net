@@ -17,39 +17,34 @@ export function ThemeSwitcher() {
 
   return (
     <button class='button aspect-square' onClick={handleClick}>
-      {theme() === 'default' ? (
-        // Moon icon
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='1.5'
+      <svg
+        width='24'
+        height='24'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          d='M9.5 16C9.5 16.2761 9.27614 16.5 9 16.5C8.72386 16.5 8.5 16.2761 8.5 16C8.5 15.7239 8.72386 15.5 9 15.5C9.27614 15.5 9.5 15.7239 9.5 16Z'
           stroke='currentColor'
-          class='w-5 md:w-6 h-5 md:h-6'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z'
-          />
-        </svg>
-      ) : (
-        // Sun icon
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='1.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        ></path>
+        <path
+          d='M4.75 6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H11.25C12.3546 4.75 13.25 5.64543 13.25 6.75V17.25C13.25 18.3546 12.3546 19.25 11.25 19.25H6.75C5.64543 19.25 4.75 18.3546 4.75 17.25V6.75Z'
           stroke='currentColor'
-          class='w-5 md:w-6 h-5 md:h-6'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z'
-          />
-        </svg>
-      )}
+          stroke-width='1.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        ></path>
+        <path
+          d='M15.7499 15.25L18.68 12.2582C19.4306 11.4917 19.4428 10.2697 18.7077 9.48834L15.6278 6.21458C14.8729 5.41215 13.1902 5.79959 13.1902 5.79959'
+          stroke='currentColor'
+          stroke-width='1.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        ></path>
+      </svg>
       <span class='sr-only'>Toggle theme</span>
     </button>
   );

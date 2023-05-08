@@ -5,6 +5,12 @@
   .box {
     @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl p-8 border border-drop-200/50 dark:border-drop-700/20;
   }
+  .box-sm {
+    @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl p-4 border border-drop-200/50 dark:border-drop-700/20;
+  }
+  .box-no-padding {
+    @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl border border-drop-200/50 dark:border-drop-700/20 overflow-hidden;
+  }
   .link {
     @apply inline-block all:underline all:outline-none underline-offset-2 decoration-[0.1em];
   }
