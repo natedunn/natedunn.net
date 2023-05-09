@@ -1,6 +1,6 @@
 ---
 import Grid from '@components/Grid.astro';
-import NowPlaying from '@components/NowPlaying.astro';
+import NowPlaying from '@components/grid-items/NowPlaying.astro';
 import ProjectProper from '@components/grid-items/ProjectProper.astro';
 import ProjectRadlist from '@components/grid-items/ProjectRadlist.astro';
 import LayoutV2 from '@layouts/LayoutHome.astro';
@@ -21,7 +21,7 @@ import LayoutV2 from '@layouts/LayoutHome.astro';
       <ProjectProper />
     </Grid>
     <Grid>
-      <div class='flex w-full col-span-6'>
+      <div class='box overflow-hidden relative flex w-full col-span-6'>
         <NowPlaying />
       </div>
       <div class='box col-span-3'>Project About</div>

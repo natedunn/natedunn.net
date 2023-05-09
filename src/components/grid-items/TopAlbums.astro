@@ -1,0 +1,31 @@
+---
+import { Image } from '@astrojs/image/components';
+import { topAlbums } from '@lib/fetches/topAlbums';
+
+const albums = await topAlbums();
+---
+
+<div class='box-no-padding flex'>
+  {
+    albums.map((album) => {
+      return (
+        <div class='relative aspect-square'>
+          <Image
+            class='select-none pointer-events-none'
+            src={album.image}
+            alt={album.name}
+            height={200}
+            width={200}
+            alt={album.name}
+          />
+          {/*
+            <div class='absolute inset-0'>
+              <h3>{album.name}</h3>
+              <p>{album.artist}</p>
+            </div>
+          */}
+        </div>
+      );
+    })
+  }
+</div>
