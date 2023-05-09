@@ -6,12 +6,8 @@ import { Portal } from 'solid-js/web';
 
 const navItems = [
   {
-    text: 'Home',
-    href: '/',
-  },
-  {
     text: 'About',
-    href: '/about',
+    href: '/',
   },
   {
     text: 'Projects',

@@ -1,31 +1,141 @@
 ---
+import Link from '@components/Link.astro';
+import { Image } from '@astrojs/image/components';
+import LayoutV2 from '@layouts/LayoutDefault.astro';
 import Grid from '@components/Grid.astro';
+import GeoCities from '@components/grid-items/GeoCities.astro';
+import Location from '@components/grid-items/Location.astro';
 import NowPlaying from '@components/grid-items/NowPlaying.astro';
-import ProjectProper from '@components/grid-items/ProjectProper.astro';
-import ProjectRadlist from '@components/grid-items/ProjectRadlist.astro';
-import LayoutV2 from '@layouts/LayoutHome.astro';
+import BoxTitle from '@components/BoxTitle.astro';
+import TopAlbums from '@components/grid-items/TopAlbums.astro';
+import clsx from 'clsx';
+
+const totalYears = new Date().getFullYear() - 2012;
+
+const tools = [
+  'Typescript',
+  'Javascript',
+  'React',
+  'Next.js',
+  'tRPC',
+  'Tailwind',
+  'GraphQL',
+  'Rest APIs',
+  'Postgre/SQL',
+  'Monorepos',
+  'Serverless',
+  'Headless',
+  'PHP',
+];
 ---
 
-<LayoutV2 title='Home'>
-  <div class='flex flex-col w-full items-start h-full space-y-6 mt-6'>
-    <!-- <Grid>
-      <div class='col-span-12 flex items-center gap-8'>
-        <h3 class='text-2xl font-bold font-mono'>Projects</h3>
-        <div class='my-4 border-t border-drop-200 dark:border-drop-800 w-full'></div>
+<style>
+  .check::before,
+  .uncheck::before {
+    content: '';
+    margin-right: 0.5rem;
+    margin-top: 6px;
+    height: 20px;
+    width: 20px;
+    border-radius: theme('borderRadius.md');
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .check::before {
+    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7.75 12.75L10 15.25L16.25 8.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"%3E%3C/path%3E%3C/svg%3E%0A');
+    background-color: theme('colors.primary.500');
+  }
+  .uncheck::before {
+    background-color: theme('colors.drop.600');
+  }
+</style>
+<LayoutV2 title='About'>
+  <div class='flex flex-col w-full items-start h-full space-y-6'>
+    <Grid>
+      <div class='col-span-3 box-no-padding'>
+        <Image src='/me-square.webp' alt='Nate Dunn' height={400} width={400} />
       </div>
-    </Grid> -->
-    <Grid custom class='grid-cols-1 md:grid-cols-12'>
-      <ProjectRadlist />
+      <div class='col-span-9 box flex items-center'>
+        <span class='text-4xl'>
+          <span class='text-gradient'>Nate Dunn</span> is a full stack engineer<br
+            class='hidden sm:inline-block'
+          /> with {totalYears} years of experience.
+        </span>
+      </div>
     </Grid>
     <Grid>
-      <ProjectProper />
+      <div class='box col-span-6 relative overflow-hidden'>
+        <Location />
+      </div>
+      <div class='box col-span-6 flex'>
+        <div>Working in:</div>
+        <ul>
+          <li>React</li>
+          <li>Typescript</li>
+          <li>Next.js</li>
+          <li>tRPC</li>
+        </ul>
+      </div>
     </Grid>
     <Grid>
-      <div class='box overflow-hidden relative flex w-full col-span-6'>
+      <div class='box col-span-3 relative overflow-hidden'>
+        <div class='bg-drop-800 flex items-center gap-2 px-4 py-3 absolute top-0 left-0 right-0'>
+          <div class='h-3 aspect-square rounded-full bg-primary-300'></div>
+          <div class='h-3 aspect-square rounded-full bg-primary-500'></div>
+          <div class='h-3 aspect-square rounded-full bg-primary-700'></div>
+        </div>
+        <div class='h-8'></div>
+        <BoxTitle>Launch checklist</BoxTitle>
+        <ul class='mt-3'>
+          <li class='check flex items-start text-sm/8'>Make it beautiful</li>
+          <li class='check flex items-start text-sm/8'>Make it accessible</li>
+          <li class='check flex items-start text-sm/8'>Make it performant</li>
+          <li class='uncheck flex items-start text-sm/8 text-drop-400'>Make 30-under-30</li>
+        </ul>
+      </div>
+      <div class='col-span-6'>
+        <div class='box h-full'>
+          <BoxTitle>Favorite tools and tech</BoxTitle>
+          <ul class='flex flex-wrap gap-2 mt-4'>
+            {
+              tools.map((tool) => {
+                const featured = [
+                  'React',
+                  'Typescript',
+                  'Next.js',
+                  'Tailwind',
+                  'Postgre/SQL',
+                  'Serverless',
+                ].includes(tool);
+                return (
+                  <li
+                    class={clsx(
+                      'px-4 py-2 bg-drop-800 rounded-lg',
+                      featured &&
+                        'bg-gradient-to-tr from-primary-500 via-primary-600 to-primary-700 text-primary-100'
+                    )}
+                  >
+                    {tool}
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </div>
+      <div class='box col-span-3 text-center'>
+        <GeoCities />
+      </div>
+    </Grid>
+    <Grid>
+      <div class='box overflow-hidden relative flex w-full col-span-4'>
         <NowPlaying />
       </div>
-      <div class='box col-span-3'>Project About</div>
-      <div class='box col-span-3'>Project About</div>
+      <div class='col-span-4'>
+        <TopAlbums />
+      </div>
+      <div class='box col-span-4'>Socials</div>
     </Grid>
   </div>
 </LayoutV2>
