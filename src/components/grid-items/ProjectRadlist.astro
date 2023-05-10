@@ -12,7 +12,13 @@ import Project from '@components/Project.astro';
   ]}
 >
   <span slot='title'>Radlist</span>
-  <span slot='description'>The delightful way to make lists for almost anything.</span>
+  <span slot='description'>
+    <div class='space-y-2'>
+      <p>The delightful way to make lists for almost anything.</p><p class='opacity-60'>
+        Now in private beta.
+      </p>
+    </div>
+  </span>
   <div slot='showcase' class='flex items-center justify-center relative'>
     <Image
       class='rounded-xl hidden dark:inline-block pointer-events-none select-none'
