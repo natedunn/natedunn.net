@@ -2,6 +2,12 @@
 import { Image } from '@astrojs/image/components';
 ---
 
-<div class='box-no-padding'>
-  <Image src='/me-square.webp' alt='Nate Dunn' height={400} width={400} />
+<div class='box-no-padding h-full'>
+  <Image
+    class='h-full object-cover pointer-events-none select-none'
+    src='/me-square.webp'
+    alt='Nate Dunn'
+    height={400}
+    width={400}
+  />
 </div>
