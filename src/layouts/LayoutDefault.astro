@@ -7,12 +7,12 @@ import { ModeToggle } from '@components/ModeToggle';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
 import LayoutDocument from './LayoutDocument.astro';
 export interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
 
-const currentPath = new URL(Astro.request.url).pathname.slice(1);
+// const currentPath = new URL(Astro.request.url).pathname.slice(1);
 ---
 
 <LayoutDocument title={title} class='flex flex-col h-full'>
