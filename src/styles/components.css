@@ -1,6 +1,6 @@
 @layer components {
   .button {
-    @apply dark:bg-drop-700 hover:dark:bg-primary-700 bg-drop-200 hover:bg-primary-700 text-drop-600 hover:text-drop-100 dark:text-drop-100 rounded-2xl px-3 py-1;
+    @apply dark:bg-drop-700 hover:dark:bg-primary-700 bg-drop-200 hover:bg-primary-700 text-drop-600 hover:text-drop-100 dark:text-drop-100 rounded-xl px-3 py-1;
   }
   .box {
     @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl p-8 border border-drop-200/50 dark:border-drop-700/20;

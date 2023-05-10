@@ -1,0 +1,49 @@
+---
+import { clsx } from 'clsx';
+import BoxTitle from '@components/BoxTitle.astro';
+
+const tools = [
+  'Typescript',
+  'Javascript',
+  'React',
+  'Next.js',
+  'tRPC',
+  'Tailwind',
+  'GraphQL',
+  'Rest APIs',
+  'Postgre/SQL',
+  'Monorepos',
+  'Serverless',
+  'Headless',
+  'PHP',
+];
+---
+
+<div class='box h-full'>
+  <BoxTitle>Favorite tools and tech</BoxTitle>
+  <ul class='flex flex-wrap gap-2 mt-4'>
+    {
+      tools.map((tool) => {
+        const featured = [
+          'React',
+          'Typescript',
+          'Next.js',
+          'Tailwind',
+          'Postgre/SQL',
+          'Serverless',
+        ].includes(tool);
+        return (
+          <li
+            class={clsx(
+              'px-4 py-2 bg-drop-200/50 dark:bg-drop-900 rounded-lg',
+              featured &&
+                'bg-gradient-to-tr from-primary-500/40 via-primary-600/40 to-primary-700/40 dark:from-primary-500/30 dark:via-primary-600/30 dark:to-primary-700/30 text-primary-800 dark:text-primary-100'
+            )}
+          >
+            {tool}
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

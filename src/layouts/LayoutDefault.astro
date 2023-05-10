@@ -27,7 +27,7 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
             href='/'
           >
             <svg
-              class='transition-all ease-linear duration-150 w-[30px] sm:w-[45px]'
+              class='w-[30px] sm:w-[45px]'
               viewBox='0 0 208 136'
               fill='transparent'
               xmlns='http://www.w3.org/2000/svg'
@@ -48,9 +48,9 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
       </div>
     </div>
     <div class='flex items-center gap-6'>
-      <div class='box-sm'><ModeToggle client:load /></div>
-      <div class='box-sm'><ThemeSwitcher client:load /></div>
-      <div class='box-sm'><MainNav currentPath={currentPath} client:load /></div>
+      <div class='box-sm h-full'><ModeToggle client:load /></div>
+      <!-- <div class='box-sm h-full'><ThemeSwitcher client:load /></div> -->
+      <div class='box-sm h-full flex-auto'><MainNav currentPath={currentPath} client:load /></div>
     </div>
   </header>
   <div class='container flex-auto flex mt-6'>

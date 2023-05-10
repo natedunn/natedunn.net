@@ -1,31 +1,35 @@
 ---
 import { Image } from '@astrojs/image/components';
+import BoxTitle from '@components/BoxTitle.astro';
 import { topAlbums } from '@lib/fetches/topAlbums';
 
 const albums = await topAlbums();
 ---
 
-<div class='box-no-padding flex'>
-  {
-    albums.map((album) => {
-      return (
-        <div class='relative aspect-square'>
-          <Image
-            class='select-none pointer-events-none'
-            src={album.image}
-            alt={album.name}
-            height={200}
-            width={200}
-            alt={album.name}
-          />
-          {/*
+<div class='box flex flex-col'>
+  <BoxTitle>What I'm listening to lately</BoxTitle>
+  <div class='grid grid-cols-2'>
+    {
+      albums.map((album) => {
+        return (
+          <div class='relative aspect-square col-span-1'>
+            <Image
+              class='select-none pointer-events-none'
+              src={album.image}
+              alt={album.name}
+              height={200}
+              width={200}
+              alt={album.name}
+            />
+            {/*
             <div class='absolute inset-0'>
               <h3>{album.name}</h3>
               <p>{album.artist}</p>
             </div>
           */}
-        </div>
-      );
-    })
-  }
+          </div>
+        );
+      })
+    }
+  </div>
 </div>

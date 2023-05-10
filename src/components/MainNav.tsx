@@ -52,13 +52,13 @@ export function MainNav({ currentPath }: { currentPath: string }) {
   );
 
   return (
-    <nav class={clsx('relative')}>
+    <nav class={clsx('relative h-full')}>
       <Show when={open()}>
         <Portal>{overlay()}</Portal>
       </Show>
 
-      <div>
-        <button class='button aspect-square' onClick={toggle}>
+      <div class='h-full'>
+        <button class='button gap-2 flex items-center h-full' onClick={toggle}>
           <svg class='w-6 h-6' fill='none' viewBox='0 0 24 24'>
             <path
               stroke='currentColor'
@@ -82,6 +82,7 @@ export function MainNav({ currentPath }: { currentPath: string }) {
               d='M4.75 12H19.25'
             />
           </svg>
+          Menu
         </button>
       </div>
       <Transition
@@ -93,11 +94,11 @@ export function MainNav({ currentPath }: { currentPath: string }) {
         exitToClass='opacity-0 scale-95'
       >
         <Show when={open()}>
-          <div class='flex flex-col gap-2 absolute z-30 top-0 right-0 p-8 bg-drop-950 rounded-2xl shadow-xl'>
+          <div class='flex flex-col gap-2 absolute z-30 top-[-1px] right-[-1px] p-8 bg-drop-950 rounded-2xl shadow-xl'>
             {navItems.map((item) => (
               <a
                 class={clsx(
-                  'text-2xl pr-12 opacity-70 hocus:opacity-100 link text-white',
+                  'text-2xl pr-12 opacity-70 hocus:opacity-100 hocus:text-primary-500 link text-white',
                   `/${currentPath}` === item.href
                     ? 'underline select-none pointer-events-none text-black dark:text-white !opacity-100'
                     : ''

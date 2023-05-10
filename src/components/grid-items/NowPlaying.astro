@@ -11,7 +11,7 @@ const data = await fetch(
   .then((res) => res.recenttracks.track[0] as Track);
 ---
 
-<div class='w-full'>
+<div class='box overflow-hidden relative flex flex-col h-full w-full'>
   <BoxTitle>Now playing</BoxTitle>
   <div class='mt-3'>
     <span class='font-bold text-primary-500'>{data?.name}</span>

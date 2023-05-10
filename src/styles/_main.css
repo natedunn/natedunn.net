@@ -7,3 +7,5 @@
 @import './base';
 @import './themes';
 @import './prose';
+
+@import './pages/about.css';
