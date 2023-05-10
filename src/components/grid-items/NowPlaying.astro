@@ -22,8 +22,8 @@ const track = await fetch(
 ---
 
 <div class='box overflow-hidden relative flex flex-col h-full w-full'>
-  <div class='flex items-center gap-6'>
-    <div class='max-w-[75px] lg:max-w-[100px]'>
+  <div class='flex items-center gap-6 h-full'>
+    <div class='h-[150px] aspect-square'>
       {
         track?.artwork && (
           <Image
@@ -31,7 +31,7 @@ const track = await fetch(
             alt={track.album ?? 'Album art'}
             height={300}
             width={300}
-            class='rounded-xl border dark:border-drop-700 border-drop-200'
+            class='rounded-xl'
           />
         )
       }

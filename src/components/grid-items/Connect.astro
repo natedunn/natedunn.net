@@ -1,0 +1,61 @@
+---
+import BoxTitle from '@components/BoxTitle.astro';
+import Link from '@components/Link.astro';
+
+import ReadcvIcon from '@components/icons/ReadcvIcon.astro';
+import TwitterIcon from '@components/icons/TwitterIcon.astro';
+import GithubIcon from '@components/icons/GitHubIcon.astro';
+import LinkedInIcon from '@components/icons/LinkedInIcon.astro';
+import MailIcon from '@components/icons/MailIcon.astro';
+---
+
+<style>
+  .connect-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .connect-link:hover {
+    color: theme('colors.primary.500');
+    text-decoration: underline;
+  }
+  .connect-icon {
+    width: 100%;
+    max-width: theme('width.5');
+  }
+</style>
+<div class='box w-full'>
+  <BoxTitle>Connect with me</BoxTitle>
+  <ul class='flex flex-wrap gap-6 mt-5'>
+    <li>
+      <Link class='connect-link' href='https://read.cv/natedunn' target='_blank'>
+        <ReadcvIcon className='connect-icon' />
+        <div>Read.cv</div>
+      </Link>
+    </li>
+    <li>
+      <Link class='connect-link' href='mailto:hello@natedunn.net' target='_blank'>
+        <MailIcon className='connect-icon' />
+        <div>Email</div>
+      </Link>
+    </li>
+    <li>
+      <Link class='connect-link' href='https://github.com/natedunn' target='_blank'>
+        <GithubIcon className='connect-icon' />
+        <div>Github</div>
+      </Link>
+    </li>
+    <li>
+      <Link class='connect-link' href='https://www.linkedin.com/in/nate-dunn/' target='_blank'>
+        <LinkedInIcon className='connect-icon' />
+        <div>LinkedIn</div>
+      </Link>
+    </li>
+    <li>
+      <Link class='connect-link' href='https://twitter.com/natedunn' target='_blank'>
+        <TwitterIcon className='connect-icon' />
+        <div>Twitter</div>
+      </Link>
+    </li>
+  </ul>
+</div>

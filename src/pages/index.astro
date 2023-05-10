@@ -1,31 +1,21 @@
 ---
 import Layout from '@layouts/LayoutDefault.astro';
 import Grid from '@components/Grid.astro';
-import GeoCities from '@components/grid-items/GeoCities.astro';
 import Location from '@components/grid-items/Location.astro';
 import NowPlaying from '@components/grid-items/NowPlaying.astro';
-import TopAlbums from '@components/grid-items/TopAlbums.astro';
 import Checklist from '@components/grid-items/Checklist.astro';
 import Greetings from '@components/grid-items/Greetings.astro';
 import Tools from '@components/grid-items/Tools.astro';
 import Portrait from '@components/grid-items/Portrait.astro';
 import HomeHeading from '@components/grid-items/HomeHeading.astro';
 import NowReading from '@components/grid-items/NowReading.astro';
+import Connect from '@components/grid-items/Connect.astro';
 import ProjectRadlist from '@components/grid-items/ProjectRadlist.astro';
 import ProjectProper from '@components/grid-items/ProjectProper.astro';
-import BoxTitle from '@components/BoxTitle.astro';
 ---
 
 <Layout title='About'>
   <div class='flex flex-col w-full items-start h-full space-y-6'>
-    <Grid>
-      <div class='md:w-3/12'>
-        <Portrait />
-      </div>
-      <div class='md:w-9/12'>
-        <HomeHeading />
-      </div>
-    </Grid>
     <Grid class='justify-center items-center'>
       <div class='text-3xl text-drop-300 dark:text-drop-700'>
         <svg class='w-12 h-12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -57,6 +47,15 @@ import BoxTitle from '@components/BoxTitle.astro';
       </div>
       <div class='inline-block border-b border-drop-200 dark:border-drop-800 w-full'></div>
     </Grid>
+    <Grid>
+      <div class='md:w-3/12'>
+        <Portrait />
+      </div>
+      <div class='md:w-9/12'>
+        <HomeHeading />
+      </div>
+    </Grid>
+
     <Grid>
       <div class='md:w-6/12'>
         <Greetings />
@@ -142,23 +141,16 @@ import BoxTitle from '@components/BoxTitle.astro';
       <div class='inline-block border-b border-drop-200 dark:border-drop-800 w-full'></div>
     </Grid>
     <Grid>
-      <div class='md:w-5/12 flex'>
+      <div class='md:w-6/12 flex'>
         <NowPlaying />
       </div>
-      <div class='md:w-3/12 flex'>
+      <div class='md:w-6/12 flex'>
         <NowReading />
       </div>
-      <div class='md:w-4/12 flex'>
-        <div class='box w-full'>
-          <BoxTitle>Connect with me</BoxTitle>
-          <ul class='flex flex-wrap gap-4 mt-4'>
-            <li><a>Read.cv</a></li>
-            <li><a>Github</a></li>
-            <li><a>Twitter</a></li>
-            <li><a>Email</a></li>
-            <li><a>LinkedIn</a></li>
-          </ul>
-        </div>
+    </Grid>
+    <Grid>
+      <div class='md:w-full'>
+        <Connect />
       </div>
     </Grid>
   </div>
