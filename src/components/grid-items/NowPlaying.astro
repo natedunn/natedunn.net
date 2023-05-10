@@ -27,7 +27,7 @@ const track = await fetch(
       {
         track?.artwork && (
           <Image
-            src={track.artwork}
+            src={track?.artwork}
             alt={track.album ?? 'Album art'}
             height={300}
             width={300}
@@ -39,7 +39,7 @@ const track = await fetch(
     <div class='w-full'>
       <BoxTitle>Now playing</BoxTitle>
       <span class='inline-block font-bold text-primary-500 text-xl mt-1'>{track?.name}</span>
-      <span class='inline-block w-full text-sm'>By {track.artist}</span>
+      <span class='inline-block w-full text-sm'>By {track?.artist}</span>
     </div>
   </div>
 
