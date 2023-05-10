@@ -1,22 +1,48 @@
 ---
+import { Image } from '@astrojs/image/components';
 import BoxTitle from '@components/BoxTitle.astro';
 import type { Track } from '@types';
 
 const key = import.meta.env.LASTFM_API_KEY;
 
-const data = await fetch(
+const track = await fetch(
   `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=natedunn_&api_key=${key}&format=json&limit=1`
 )
   .then((res) => res.json())
-  .then((res) => res.recenttracks.track[0] as Track);
+  .then(async (res) => {
+    const track = res.recenttracks.track[0] as Track;
+
+    return {
+      name: track?.name ?? 'Unknown',
+      artist: track?.artist?.['#text'] ?? 'Unknown',
+      artwork: track?.image?.[3]?.['#text'] ?? null,
+      album: track?.album?.['#text'] ?? null,
+    };
+  });
 ---
 
 <div class='box overflow-hidden relative flex flex-col h-full w-full'>
-  <BoxTitle>Now playing</BoxTitle>
-  <div class='mt-3'>
-    <span class='inline-block font-bold text-primary-500 text-2xl/7'>{data?.name}</span>
-    <span class='inline-block mt-2'>By {data?.artist?.['#text']}</span>
+  <div class='flex items-center gap-4'>
+    <div class='max-w-[100px]'>
+      {
+        track?.artwork && (
+          <Image
+            src={track.artwork}
+            alt={track.album ?? 'Album art'}
+            height={300}
+            width={300}
+            class='rounded-xl border dark:border-drop-700 border-drop-200'
+          />
+        )
+      }
+    </div>
+    <div class='w-full'>
+      <BoxTitle>Now playing</BoxTitle>
+      <span class='inline-block font-bold text-primary-500 text-xl mt-1'>{track?.name}</span>
+      <span class='inline-block w-full text-sm'>By {track.artist}</span>
+    </div>
   </div>
+
   <svg
     class='absolute -right-4 -bottom-8 h-32 w-32 opacity-20 text-primary-500'
     fill='none'
