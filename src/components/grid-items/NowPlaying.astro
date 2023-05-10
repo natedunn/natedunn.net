@@ -10,7 +10,7 @@ const track = await fetch(
 )
   .then((res) => res.json())
   .then(async (res) => {
-    const track = res.recenttracks.track[0] as Track;
+    const track = res?.recenttracks?.track[0] as Track;
 
     return {
       name: track?.name ?? 'Unknown',
