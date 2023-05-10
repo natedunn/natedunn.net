@@ -28,7 +28,7 @@ const track = await fetch(
         track?.artwork && (
           <Image
             src={track?.artwork}
-            alt={track.album ?? 'Album art'}
+            alt={track?.album ?? 'Album art'}
             height={300}
             width={300}
             class='rounded-xl'
