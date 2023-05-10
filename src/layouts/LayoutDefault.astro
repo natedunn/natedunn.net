@@ -43,14 +43,14 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
           </a>
         </div>
         <div class='px-8 py-4 flex flex-col text-2xl opacity-20'>
-          /{title.toLowerCase()}
+          <!-- /{title.toLowerCase()} -->
         </div>
       </div>
     </div>
     <div class='flex items-center gap-6'>
       <div class='box-sm h-full'><ModeToggle client:load /></div>
       <!-- <div class='box-sm h-full'><ThemeSwitcher client:load /></div> -->
-      <div class='box-sm h-full flex-auto'><MainNav currentPath={currentPath} client:load /></div>
+      <!-- <div class='box-sm h-full flex-auto'><MainNav currentPath={currentPath} client:load /></div> -->
     </div>
   </header>
   <div class='container flex-auto flex mt-6'>

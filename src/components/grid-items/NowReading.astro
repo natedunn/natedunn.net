@@ -1,0 +1,17 @@
+---
+import { Image } from '@astrojs/image/components';
+import BoxTitle from '@components/BoxTitle.astro';
+---
+
+<div class='box text-center overflow-hidden flex items-stretch flex-col h-full w-full'>
+  <BoxTitle>Now Reading</BoxTitle>
+  <div class='max-w-[100px] mx-auto mt-4 shadow-2xl shadow-drop-500/50'>
+    <Image
+      src='https://i.harperapps.com/hcanz/covers/9781786691347/x293.jpg'
+      alt='Pachinko by Min Jin Lee'
+      width={293}
+      height={450}
+      class='rounded-xl -mb-20'
+    />
+  </div>
+</div>

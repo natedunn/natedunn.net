@@ -1,6 +1,6 @@
 const key = import.meta.env.LASTFM_API_KEY;
 
-export const topAlbums = async () =>
+export const topAlbums = async (total: number) =>
   await fetch(
     `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=natedunn_&api_key=${key}&format=json`
   )
@@ -13,7 +13,7 @@ export const topAlbums = async () =>
         mbid: string;
         name: string;
       }[];
-      return album.filter((_, i) => i < 4);
+      return album.filter((_, i) => i < total);
     })
     .then(async (albums) => {
       return Promise.all(

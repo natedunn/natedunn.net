@@ -10,8 +10,8 @@ const { class: className, custom } = Astro.props;
 ---
 
 <div
-  class={clsx('grid w-full gap-6', className, {
-    'grid-cols-12': !custom,
+  class={clsx('flex justify-stretch w-full gap-6', className, {
+    'flex-col md:flex-row': !custom,
   })}
 >
   <slot />

@@ -16,11 +16,11 @@ type Props = {
 const { featured = true, title, description, links, flipped = false } = Astro.props;
 ---
 
-<div class='box col-span-1 md:col-span-8'>
+<div class='box md:w-8/12'>
   <slot name='showcase' />
 </div>
 <div
-  class={clsx('box !p-0 col-span-1 md:col-span-4 flex flex-col w-full', {
+  class={clsx('box !p-0 md:w-4/12 flex flex-col w-full', {
     'md:order-first': flipped,
     'md:order-last': !flipped,
   })}
@@ -39,7 +39,7 @@ const { featured = true, title, description, links, flipped = false } = Astro.pr
       <div class='mt-auto p-8 rounded-b-xl bg-drop-400/10 dark:bg-drop-800 flex flex-col'>
         {links.map((link) => {
           return (
-            <a href={link.url} class='link link-accent'>
+            <a href={link.url} class='link link-accent' target='_blank'>
               {link.text}
             </a>
           );
