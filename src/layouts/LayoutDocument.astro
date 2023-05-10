@@ -1,0 +1,57 @@
+---
+import '../styles/_main.css';
+export interface Props {
+  title?: string;
+  class?: string;
+}
+
+const { class: className, title } = Astro.props;
+---
+
+<!-- Mode -->
+<script is:inline>
+  const mode = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('mode')) {
+      return localStorage.getItem('mode');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  })();
+
+  if (mode === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+  window.localStorage.setItem('mode', mode);
+</script>
+
+<!-- Theme -->
+<script is:inline>
+  const theme = (() => localStorage.getItem('theme') ?? 'default')();
+
+  document.documentElement.setAttribute('data-theme', theme);
+  window.localStorage.setItem('theme', theme);
+</script>
+
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.png' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title ? `${title} — Nate Dunn` : `Nate Dunn — Full stack web developer`}</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&display=swap'
+      rel='stylesheet'
+    />
+  </head>
+
+  <body class={className}>
+    <slot />
+  </body>
+</html>

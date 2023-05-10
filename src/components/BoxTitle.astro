@@ -1,0 +1,18 @@
+---
+import clsx from 'clsx';
+
+type Props = {
+  className?: string;
+};
+
+const { className } = Astro.props;
+---
+
+<div
+  class={clsx(
+    'text-xs uppercase tracking-wide font-bold dark:text-drop-500 text-drop-400',
+    className
+  )}
+>
+  <slot />
+</div>

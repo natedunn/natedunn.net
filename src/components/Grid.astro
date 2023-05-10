@@ -1,0 +1,18 @@
+---
+import clsx from 'clsx';
+
+type Props = {
+  class?: string;
+  custom?: boolean;
+};
+
+const { class: className, custom } = Astro.props;
+---
+
+<div
+  class={clsx('flex justify-stretch w-full gap-6', className, {
+    'flex-col md:flex-row': !custom,
+  })}
+>
+  <slot />
+</div>

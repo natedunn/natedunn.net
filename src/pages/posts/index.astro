@@ -2,7 +2,7 @@
 interface Props {}
 import { getCollection } from 'astro:content';
 import PageHeader from '@components/PageHeader.astro';
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/LayoutDefault.astro';
 import Link from '@components/Link.astro';
 
 const postsEntries = await getCollection('posts');

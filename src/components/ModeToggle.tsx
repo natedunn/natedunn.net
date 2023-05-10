@@ -2,28 +2,25 @@
 
 import { createEffect, createSignal } from 'solid-js';
 
-export default function ThemeToggle() {
-  const [theme, setTheme] = createSignal(localStorage.getItem('theme') ?? 'light');
+export function ModeToggle() {
+  const [mode, setMode] = createSignal(localStorage.getItem('mode') ?? 'light');
 
   const handleClick = () => {
-    setTheme(theme() === 'light' ? 'dark' : 'light');
+    setMode(mode() === 'light' ? 'dark' : 'light');
   };
 
   createEffect(() => {
-    if (theme() === 'dark') {
+    if (mode() === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme());
-  }, [theme]);
+    localStorage.setItem('mode', mode());
+  }, [mode]);
 
   return (
-    <button
-      class='px-1 py-1 md:px-2 md:py-2 text-primary rounded-full hover:ring-2 hover:ring-primary focus:ring-2 focus:ring-primary transition-all ease-in-out duration-150'
-      onClick={handleClick}
-    >
-      {theme() === 'light' ? (
+    <button class='button aspect-square' onClick={handleClick}>
+      {mode() === 'light' ? (
         // Moon icon
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -56,6 +53,7 @@ export default function ThemeToggle() {
           />
         </svg>
       )}
+      <span class='sr-only'>Toggle theme</span>
     </button>
   );
 }

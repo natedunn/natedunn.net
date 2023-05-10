@@ -1,0 +1,19 @@
+.prose,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-primary);
+}
+.prose a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+.prose a:hover {
+  @apply inline all:underline all:outline-none underline-offset-2 decoration-[0.1em] hover:text-primary-500;
+}
+.prose strong {
+  color: var(--color-primary);
+}

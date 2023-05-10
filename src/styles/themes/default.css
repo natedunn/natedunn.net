@@ -1,0 +1,57 @@
+html,
+html[data-theme='default'] {
+  --primary-50: theme('colors.bronze.50');
+  --primary-100: theme('colors.bronze.100');
+  --primary-200: theme('colors.bronze.200');
+  --primary-300: theme('colors.bronze.300');
+  --primary-400: theme('colors.bronze.400');
+  --primary-500: theme('colors.bronze.500');
+  --primary-600: theme('colors.bronze.600');
+  --primary-700: theme('colors.bronze.700');
+  --primary-800: theme('colors.bronze.800');
+  --primary-900: theme('colors.bronze.900');
+  --primary-950: theme('colors.bronze.950');
+
+  --secondary-50: theme('colors.zinc.50');
+  --secondary-100: theme('colors.zinc.100');
+  --secondary-200: theme('colors.zinc.200');
+  --secondary-300: theme('colors.zinc.300');
+  --secondary-400: theme('colors.zinc.400');
+  --secondary-500: theme('colors.zinc.500');
+  --secondary-600: theme('colors.zinc.600');
+  --secondary-700: theme('colors.zinc.700');
+  --secondary-800: theme('colors.zinc.800');
+  --secondary-900: theme('colors.zinc.900');
+  --secondary-950: theme('colors.zinc.950');
+
+  --drop-50: theme('colors.rgbZinc.50');
+  --drop-100: theme('colors.rgbZinc.100');
+  --drop-200: theme('colors.rgbZinc.200');
+  --drop-300: theme('colors.rgbZinc.300');
+  --drop-400: theme('colors.rgbZinc.400');
+  --drop-500: theme('colors.rgbZinc.500');
+  --drop-600: theme('colors.rgbZinc.600');
+  --drop-700: theme('colors.rgbZinc.700');
+  --drop-800: theme('colors.rgbZinc.800');
+  --drop-900: theme('colors.rgbZinc.900');
+  --drop-950: theme('colors.rgbZinc.950');
+
+  color: theme('colors.zinc.900');
+  background-color: theme('colors.white');
+}
+
+/* Dark */
+html.dark,
+html.dark[data-theme='default'] {
+  color: theme('colors.white');
+  background-color: theme('colors.neutral.900');
+}
+
+::selection {
+  background-color: theme('colors.primary.500');
+  color: theme('colors.white');
+}
+::-moz-selection {
+  background-color: theme('colors.primary.500');
+  color: theme('colors.white');
+}

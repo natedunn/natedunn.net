@@ -1,0 +1,21 @@
+---
+import BoxTitle from '@components/BoxTitle.astro';
+---
+
+<div class='box relative overflow-hidden h-full'>
+  <div
+    class='bg-drop-200 dark:bg-drop-800 flex items-center gap-2 px-4 py-3 absolute top-0 left-0 right-0'
+  >
+    <div class='h-3 aspect-square rounded-full bg-primary-300'></div>
+    <div class='h-3 aspect-square rounded-full bg-primary-500'></div>
+    <div class='h-3 aspect-square rounded-full bg-primary-700'></div>
+  </div>
+  <div class='h-8'></div>
+  <BoxTitle>Launch checklist</BoxTitle>
+  <ul class='mt-3'>
+    <li class='check flex items-start text-sm/8'>Make it beautiful</li>
+    <li class='check flex items-start text-sm/8'>Make it accessible</li>
+    <li class='check flex items-start text-sm/8'>Make it performant</li>
+    <li class='uncheck flex items-start text-sm/8 text-drop-400'>Make it smell like cookies</li>
+  </ul>
+</div>

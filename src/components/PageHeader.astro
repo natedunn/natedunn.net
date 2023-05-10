@@ -10,7 +10,7 @@ type Props = {
 const { title, subtitle, className } = Astro.props;
 ---
 
-<div class={clsx('space-y-1 border-b border-zinc-200 dark:border-zinc-700 pb-6 mb-8', className)}>
+<div class={clsx('space-y-1 border-b border-drop-200 dark:border-drop-700 pb-6 mb-8', className)}>
   <h1 class='text-4xl font-bold'>{title}</h1>
   {subtitle && <h2 class='text-lg'>{subtitle}</h2>}
 </div>

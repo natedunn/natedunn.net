@@ -1,0 +1,26 @@
+.check::before,
+.uncheck::before {
+  content: '';
+  margin-right: 0.5rem;
+  margin-top: 6px;
+  height: 20px;
+  width: 20px;
+  border-radius: theme('borderRadius.md');
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.check::before {
+  background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7.75 12.75L10 15.25L16.25 8.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"%3E%3C/path%3E%3C/svg%3E%0A');
+  background-color: theme('colors.primary.500');
+}
+.uncheck::before {
+  background-color: theme('colors.drop.200');
+}
+
+.dark .check::before {
+  background-color: theme('colors.primary.400');
+}
+.dark .uncheck::before {
+  background-color: theme('colors.drop.700');
+}

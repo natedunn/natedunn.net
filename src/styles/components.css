@@ -1,0 +1,20 @@
+@layer components {
+  .button {
+    @apply dark:bg-drop-700 hover:dark:bg-primary-700 bg-drop-200 hover:bg-primary-700 text-drop-600 hover:text-drop-100 dark:text-drop-100 rounded-xl px-3 py-1;
+  }
+  .box {
+    @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl p-8 border border-drop-200/50 dark:border-drop-700/20;
+  }
+  .box-sm {
+    @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl p-4 border border-drop-200/50 dark:border-drop-700/20;
+  }
+  .box-no-padding {
+    @apply bg-drop-100/75 dark:bg-drop-800/50 rounded-2xl border border-drop-200/50 dark:border-drop-700/20 overflow-hidden;
+  }
+  .link {
+    @apply inline-block all:underline all:outline-none underline-offset-2 decoration-[0.1em];
+  }
+  .link-accent {
+    @apply text-primary-500 hocus:text-primary-700 dark:hover:text-primary-300;
+  }
+}
