@@ -2,7 +2,7 @@
 import Layout from '@layouts/LayoutDefault.astro';
 import Grid from '@components/Grid.astro';
 import Location from '@components/grid-items/Location.astro';
-import NowPlaying from '@components/grid-items/NowPlaying.astro';
+import { NowPlaying } from '@components/grid-items/NowPlaying';
 import Checklist from '@components/grid-items/Checklist.astro';
 import Greetings from '@components/grid-items/Greetings.astro';
 import Tools from '@components/grid-items/Tools.astro';
@@ -142,7 +142,7 @@ import ProjectProper from '@components/grid-items/ProjectProper.astro';
     </Grid>
     <Grid>
       <div class='md:w-6/12 flex'>
-        <NowPlaying />
+        <NowPlaying client:load />
       </div>
       <div class='md:w-6/12 flex'>
         <NowReading />
