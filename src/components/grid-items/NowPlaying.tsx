@@ -6,7 +6,7 @@ const getCurrentTrack = async () => {
   const key = import.meta.env.PUBLIC_LASTFM_API_KEY;
 
   return await fetch(
-    `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=natedunn_&api_key=${key}&format=json&limit=1`
+    `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=natedunn_&api_key=${key}&format=json&limit=1`
   )
     .then((res) => res.json())
     .then(async (res) => {
