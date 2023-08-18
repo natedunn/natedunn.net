@@ -1,6 +1,7 @@
 ---
 import { Image } from '@astrojs/image/components';
 import Project from '@components/Project.astro';
+import { ProperHeaderAnimation } from '@components/ProperHeaderAnimation';
 ---
 
 <Project
@@ -11,30 +12,18 @@ import Project from '@components/Project.astro';
     },
   ]}
   flipped
+  showCaseBox='box-no-padding'
 >
   <span slot='title'>Proper</span>
   <span slot='description'>
     Generate your own shell script to globally install from NPM, Homebrew, Mac app store, &
     Composer.
   </span>
-  <div slot='showcase' class='flex items-center justify-center relative'>
-    <Image
-      class='rounded-xl hidden dark:inline-block pointer-events-none select-none'
-      width={800}
-      height={445}
-      alt='Radlist'
-      quality={100}
-      src='/projects/proper/proper-bg-dark.png'
-    />
-    <Image
-      class='rounded-xl inline-block dark:hidden pointer-events-none select-none'
-      width={800}
-      height={445}
-      alt='Radlist'
-      quality={100}
-      src='/projects/proper/proper-bg-light.png'
-    />
-    <div class='absolute z-10 w-[12rem]'>
+  <div slot='showcase' class='flex items-center justify-center relative h-full bg-drop-950'>
+    <div>
+      <ProperHeaderAnimation />
+    </div>
+    <div class='absolute z-10 flex items-stretch w-full px-6 max-w-[18rem]'>
       <svg
         class='text-rose-600 dark:text-rose-400'
         xmlns='http://www.w3.org/2000/svg'

@@ -1,46 +1,31 @@
 ---
-import Layout from '@layouts/LayoutDefault.astro';
 import Grid from '@components/Grid.astro';
-import Location from '@components/grid-items/Location.astro';
-import { NowPlaying } from '@components/grid-items/NowPlaying';
-import Checklist from '@components/grid-items/Checklist.astro';
-import Greetings from '@components/grid-items/Greetings.astro';
-import Tools from '@components/grid-items/Tools.astro';
-import Portrait from '@components/grid-items/Portrait.astro';
-import HomeHeading from '@components/grid-items/HomeHeading.astro';
-import NowReading from '@components/grid-items/NowReading.astro';
+import Layout from '@layouts/LayoutDefault.astro';
+import { Image } from '@astrojs/image/components';
+import ProjectProper from '@components/grid-items/projects/ProjectProperAlt.astro';
+import ProjectRadlist from '@components/grid-items/projects/ProjectRadlistAlt.astro';
+import ProjectThred from '@components/grid-items/projects/ProjectThred.astro';
+import ProjectSlingshot from '@components/grid-items/projects/ProjectSlingshot.astro';
+import ProjectApca from '@components/grid-items/projects/ProjectApca.astro';
 import Connect from '@components/grid-items/Connect.astro';
-import ProjectRadlist from '@components/grid-items/projects/ProjectRadlist.astro';
-import ProjectProper from '@components/grid-items/projects/ProjectProper.astro';
 ---
 
-<Layout>
+<Layout title='Projects'>
   <div class='flex flex-col w-full items-start h-full space-y-6'>
     <Grid class='justify-center items-center'>
       <div class='text-3xl text-drop-300 dark:text-drop-700'>
-        <svg class='w-12 h-12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='1.5'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          class='lucide lucide-sparkle w-10 h-10'
+        >
           <path
-            d='M12 4.75V19.25'
-            stroke='currentColor'
-            stroke-width='1.5'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-          >
-          </path>
-          <path
-            d='M18.2501 8.74994L5.75 15.2501'
-            stroke='currentColor'
-            stroke-width='1.5'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-          >
-          </path>
-          <path
-            d='M18.2498 15.2503L5.74976 8.75012'
-            stroke='currentColor'
-            stroke-width='1.5'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            d='m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z'
           >
           </path>
         </svg>
@@ -48,28 +33,25 @@ import ProjectProper from '@components/grid-items/projects/ProjectProper.astro';
       <div class='inline-block border-b border-drop-200 dark:border-drop-800 w-full'></div>
     </Grid>
     <Grid>
-      <div class='md:w-3/12'>
-        <Portrait />
+      <div class='md:w-2/12'>
+        <div class='box flex items-center justify-center text-7xl h-full'>
+          👋
+          <!-- <Image
+            src='https://web.archive.org/web/20090830054951/http://www.geocities.com/iciaos/globe.gif'
+            height={100}
+            width={100}
+            alt='Globe'
+          /> -->
+        </div>
       </div>
-      <div class='md:w-9/12'>
-        <HomeHeading />
-      </div>
-    </Grid>
-
-    <Grid>
-      <div class='md:w-6/12'>
-        <Greetings />
-      </div>
-      <div class='md:w-6/12'>
-        <Location />
-      </div>
-    </Grid>
-    <Grid>
-      <div class='md:w-4/12'>
-        <Checklist />
-      </div>
-      <div class='md:w-8/12'>
-        <Tools />
+      <div class='md:w-10/12'>
+        <div class='box text-3xl h-full flex items-center'>
+          <div>
+            <span>Here are just a few things</span><br />
+            <span class='text-gradient'>Nate</span>
+            <span>that has worked on.</span>
+          </div>
+        </div>
       </div>
     </Grid>
     <Grid class='justify-center items-center'>
@@ -117,6 +99,15 @@ import ProjectProper from '@components/grid-items/projects/ProjectProper.astro';
     <Grid>
       <ProjectProper />
     </Grid>
+    <Grid>
+      <ProjectThred />
+    </Grid>
+    <Grid>
+      <ProjectSlingshot />
+    </Grid>
+    <Grid>
+      <ProjectApca />
+    </Grid>
     <Grid class='justify-center items-center'>
       <div class='text-3xl text-drop-300 dark:text-drop-700'>
         <svg class='w-12 h-12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -139,14 +130,6 @@ import ProjectProper from '@components/grid-items/projects/ProjectProper.astro';
         </svg>
       </div>
       <div class='inline-block border-b border-drop-200 dark:border-drop-800 w-full'></div>
-    </Grid>
-    <Grid>
-      <div class='md:w-6/12 flex'>
-        <NowPlaying client:load />
-      </div>
-      <div class='md:w-6/12 flex'>
-        <NowReading />
-      </div>
     </Grid>
     <Grid>
       <div class='md:w-full'>
