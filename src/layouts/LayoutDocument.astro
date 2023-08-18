@@ -10,30 +10,30 @@ const { class: className, title } = Astro.props;
 
 <!-- Mode -->
 <script is:inline>
-  const mode = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('mode')) {
-      return localStorage.getItem('mode');
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  })();
-
-  if (mode === 'light') {
-    document.documentElement.classList.remove('dark');
-  } else {
-    document.documentElement.classList.add('dark');
+const mode = (() => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('mode')) {
+    return localStorage.getItem('mode');
   }
-  window.localStorage.setItem('mode', mode);
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  return 'light';
+})();
+
+if (mode === 'light') {
+  document.documentElement.classList.remove('dark');
+} else {
+  document.documentElement.classList.add('dark');
+}
+window.localStorage.setItem('mode', mode);
 </script>
 
 <!-- Theme -->
 <script is:inline>
-  const theme = (() => localStorage.getItem('theme') ?? 'default')();
+const theme = (() => localStorage.getItem('theme') ?? 'default')();
 
-  document.documentElement.setAttribute('data-theme', theme);
-  window.localStorage.setItem('theme', theme);
+document.documentElement.setAttribute('data-theme', theme);
+window.localStorage.setItem('theme', theme);
 </script>
 
 <html lang='en'>
@@ -49,6 +49,21 @@ const { class: className, title } = Astro.props;
       href='https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&display=swap'
       rel='stylesheet'
     />
+
+    <title>Projects — Nate Dunn</title>
+    <meta name='description' content='undefined' />
+
+    <meta property='og:type' content='website' />
+    <meta property='og:title' content='Nate Dunn' />
+    <meta property='og:description' content='undefined' />
+    <meta property='og:image' content='/og.png' />
+
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta property='twitter:domain' content='natedunn.net' />
+    <meta property='twitter:url' content='https://natedunn.net' />
+    <meta name='twitter:title' content='Nate Dunn' />
+    <meta name='twitter:description' content='undefined' />
+    <meta name='twitter:image' content='/og.png' />
   </head>
 
   <body class={className}>
