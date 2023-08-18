@@ -14,22 +14,24 @@ import Project from '@components/Project.astro';
 >
   <span slot='title'>APCA Vaccines Campaign</span>
   <span slot='description'>
-    <div class='space-y-2'>
-      <p>The delightful way to make lists for almost anything.</p><p class='opacity-60'>
-        Now in private beta.
-      </p>
+    <div>
+      <p>PSA marketing site for vaccine availability.</p>
+      <ul class='text-sm space-y-0.5 mt-5 text-drop-400 list-outside list-disc pl-4'>
+        <li>Built on Astro</li>
+        <li>Content via headless CMS</li>
+      </ul>
     </div>
   </span>
-  <div slot='showcase' class='flex items-center justify-center relative h-full'>
+  <div slot='showcase' class='flex items-center justify-center relative md:h-full h-64'>
     <Image
-      class='absolute z-0 inset-0 opacity-10 invert dark:invert-0'
+      class='absolute z-0 inset-0 opacity-10 invert dark:invert-0 h-full'
       width={800}
       height={445}
       alt='APCA'
       quality={100}
       src='/projects/apca/apca-bg.webp'
     />
-    <div class='absolute z-10'>
+    <div class='absolute z-10 px-6'>
       <svg
         class='w-full text-[#30AE83]'
         xmlns='http://www.w3.org/2000/svg'

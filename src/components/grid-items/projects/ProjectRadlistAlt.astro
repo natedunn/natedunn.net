@@ -22,9 +22,9 @@ import Project from '@components/Project.astro';
       </ul>
     </div>
   </span>
-  <div slot='showcase' class='flex items-center justify-center relative'>
+  <div slot='showcase' class='flex items-center justify-center relative md:h-full h-64'>
     <Image
-      class='rounded-xl hidden dark:inline-block pointer-events-none select-none'
+      class='rounded-xl hidden dark:inline-block pointer-events-none select-none absolute z-0 inset-0 h-full'
       width={800}
       height={445}
       alt='Radlist'
@@ -32,7 +32,7 @@ import Project from '@components/Project.astro';
       src='/projects/radlist/radlist-bg-dark.png'
     />
     <Image
-      class='rounded-xl inline-block dark:hidden pointer-events-none select-none'
+      class='rounded-xl inline-block dark:hidden pointer-events-none select-none absolute z-0 inset-0 h-full'
       width={800}
       height={445}
       alt='Radlist'
