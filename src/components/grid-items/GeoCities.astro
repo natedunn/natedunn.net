@@ -1,28 +1,28 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import BoxTitle from '@components/BoxTitle.astro';
 ---
 
 <div class='h-full text-center box'>
-  <BoxTitle>Certificate in</BoxTitle>
-  <div class='w-full max-w-[96px] inline-block mt-2 relative'>
-    <div class='bg-drop-500/30 z-10 absolute inset-0'></div>
-    <Image
-      class='dark:inline-block hidden w-full saturate-0'
-      src='/geocities_dark.gif'
-      alt='Geocities'
-      height={31}
-      width={88}
-    />
-    <Image
-      class='dark:hidden inline-block w-full saturate-0'
-      src='/geocities_light.gif'
-      alt='Geocities'
-      height={31}
-      width={88}
-    />
-  </div>
-  <!-- <BoxTitle>Trained in</BoxTitle>
+	<BoxTitle>Certificate in</BoxTitle>
+	<div class='w-full max-w-[96px] inline-block mt-2 relative'>
+		<div class='bg-drop-500/30 z-10 absolute inset-0'></div>
+		<Image
+			class='dark:inline-block hidden w-full saturate-0'
+			src='/geocities_dark.gif'
+			alt='Geocities'
+			height={31}
+			width={88}
+		/>
+		<Image
+			class='dark:hidden inline-block w-full saturate-0'
+			src='/geocities_light.gif'
+			alt='Geocities'
+			height={31}
+			width={88}
+		/>
+	</div>
+	<!-- <BoxTitle>Trained in</BoxTitle>
   <div class='inline-block mt-1'>
     <svg
       class='text-drop-700 dark:text-drop-100 w-24 py-2 px-3 bg-drop-200 dark:bg-drop-700 rounded-lg'
