@@ -1,5 +1,3 @@
-/** @jsxImportSource solid-js */
-
 import { createEffect, createSignal } from 'solid-js';
 
 export function ModeToggle() {

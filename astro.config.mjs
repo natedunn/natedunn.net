@@ -1,7 +1,5 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import preact from '@astrojs/preact';
-import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import solidJs from '@astrojs/solid-js';
 
@@ -13,12 +11,10 @@ export default defineConfig({
     tailwind({
       config: { applyBaseStyles: false },
     }),
-    preact({
-      compat: true,
-    }),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
     solidJs(),
   ],
+  image: {
+    service: squooshImageService(),
+  },
+  prefetch: true,
 });

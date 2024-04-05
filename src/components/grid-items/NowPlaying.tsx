@@ -1,4 +1,3 @@
-/** @jsxImportSource solid-js */
 import type { Track } from '@types';
 import { createEffect, createSignal } from 'solid-js';
 
