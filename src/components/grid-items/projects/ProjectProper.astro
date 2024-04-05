@@ -6,7 +6,7 @@ import { ProperHeaderAnimation } from '@components/ProperHeaderAnimation';
 <Project
 	links={[
 		{
-			text: 'Visit Proper',
+			text: 'proper.sh',
 			url: 'https://proper.sh',
 		},
 	]}
@@ -18,7 +18,10 @@ import { ProperHeaderAnimation } from '@components/ProperHeaderAnimation';
 		Generate your own shell script to globally install from NPM, Homebrew, Mac app store, &
 		Composer.
 	</span>
-	<div slot='showcase' class='flex items-center justify-center relative h-full bg-drop-950'>
+	<div
+		slot='showcase'
+		class='flex items-center justify-center relative h-full bg-white dark:bg-drop-950'
+	>
 		<div>
 			<ProperHeaderAnimation client:load />
 		</div>

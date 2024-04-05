@@ -6,8 +6,8 @@ import Project from '@components/Project.astro';
 <Project
 	links={[
 		{
-			text: 'Visit Radlist',
-			url: 'https://radl.ist',
+			text: 'superrad.app',
+			url: 'https://superrad.app',
 		},
 	]}
 	showCaseBox='box-no-padding'
@@ -22,9 +22,9 @@ import Project from '@components/Project.astro';
 			</p>
 		</div>
 	</span>
-	<div slot='showcase' class='flex items-center justify-center relative'>
+	<div slot='showcase' class='flex items-center justify-center relative h-full'>
 		<Image
-			class='rounded-xl hidden dark:inline-block pointer-events-none select-none'
+			class='rounded-xl hidden dark:inline-block pointer-events-none select-none h-full object-cover'
 			width={800}
 			height={445}
 			alt='Rad'
@@ -32,30 +32,38 @@ import Project from '@components/Project.astro';
 			quality={100}
 			src='/projects/rad/rad-bg-dark.webp'
 		/>
-		<!-- <Image
-			class='rounded-xl inline-block dark:hidden pointer-events-none select-none'
+		<Image
+			class='rounded-xl inline-block dark:hidden pointer-events-none select-none h-full object-cover'
 			width={800}
 			height={445}
 			alt='Radlist'
 			quality={100}
-			src='/projects/radlist/radlist-bg-light.png'
-		/> -->
+			src='/projects/rad/rad-bg-light.webp'
+		/>
+		<!-- Gradient -->
 		<div
-			class='absolute z-10 w-full max-w-[18rem justify-center flex items-center font-extrabold gap-3 uppercase tracking-widest text-4xl'
+			class='absolute inset-0 bg-gradient-to-b to-transparent from-zinc-100 dark:from-zinc-950 dark:to-transparent'
 		>
-			<svg
-				class='w-[2.5rem] animate-spin-slow'
-				xmlns='http://www.w3.org/2000/svg'
-				fill='none'
-				viewBox='0 0 106 106'
+		</div>
+		<div class='absolute z-10 w-full max-w-[18rem] text-center top-12 flex flex-col justify-center'>
+			<div
+				class='flex items-center font-extrabold gap-2 mx-auto uppercase tracking-widest text-4xl'
 			>
-				<path
-					fill='currentColor'
-					d='M48.35 3.96c1.7-4.3 7.8-4.3 9.5 0l5.7 14.33a5.11 5.11 0 0 0 6.78 2.8L84.49 15a5.11 5.11 0 0 1 6.72 6.72l-6.1 14.17a5.11 5.11 0 0 0 2.8 6.77l14.34 5.7c4.3 1.7 4.3 7.8 0 9.5l-14.34 5.7a5.11 5.11 0 0 0-2.8 6.78l6.1 14.16a5.11 5.11 0 0 1-6.72 6.72l-14.16-6.1a5.11 5.11 0 0 0-6.78 2.8l-5.7 14.34a5.11 5.11 0 0 1-9.5 0l-5.7-14.34a5.11 5.11 0 0 0-6.77-2.8L21.7 91.2a5.11 5.11 0 0 1-6.72-6.72l6.1-14.16a5.11 5.11 0 0 0-2.8-6.78l-14.33-5.7a5.11 5.11 0 0 1 0-9.5l14.33-5.7a5.11 5.11 0 0 0 2.8-6.77L15 21.7a5.11 5.11 0 0 1 6.72-6.72l14.17 6.1a5.11 5.11 0 0 0 6.77-2.8l5.7-14.33Z'
+				<svg
+					class='w-[2.2rem] animate-spin-slow'
+					xmlns='http://www.w3.org/2000/svg'
+					fill='none'
+					viewBox='0 0 106 106'
 				>
-				</path>
-				<div>Radlist</div>
-			</svg>
+					<path
+						fill='currentColor'
+						d='M48.35 3.96c1.7-4.3 7.8-4.3 9.5 0l5.7 14.33a5.11 5.11 0 0 0 6.78 2.8L84.49 15a5.11 5.11 0 0 1 6.72 6.72l-6.1 14.17a5.11 5.11 0 0 0 2.8 6.77l14.34 5.7c4.3 1.7 4.3 7.8 0 9.5l-14.34 5.7a5.11 5.11 0 0 0-2.8 6.78l6.1 14.16a5.11 5.11 0 0 1-6.72 6.72l-14.16-6.1a5.11 5.11 0 0 0-6.78 2.8l-5.7 14.34a5.11 5.11 0 0 1-9.5 0l-5.7-14.34a5.11 5.11 0 0 0-6.77-2.8L21.7 91.2a5.11 5.11 0 0 1-6.72-6.72l6.1-14.16a5.11 5.11 0 0 0-2.8-6.78l-14.33-5.7a5.11 5.11 0 0 1 0-9.5l14.33-5.7a5.11 5.11 0 0 0 2.8-6.77L15 21.7a5.11 5.11 0 0 1 6.72-6.72l14.17 6.1a5.11 5.11 0 0 0 6.77-2.8l5.7-14.33Z'
+					>
+					</path>
+				</svg>
+				<div>Rad</div>
+			</div>
+			<div class='dark:text-zinc-300'>Make lists fun.</div>
 		</div>
 	</div>
 </Project>
