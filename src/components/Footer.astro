@@ -1,22 +1,23 @@
 ---
+import { CurrentYear } from './CurrentYear';
 import Link from './Link.astro';
 ---
 
 <style>
-  li:not(:first-of-type) {
-    padding-left: theme('spacing.6');
-  }
+	li:not(:first-of-type) {
+		padding-left: theme('spacing.6');
+	}
 </style>
 
 <footer class='dark:text-white/75 text-black/75 flex gap-4 items-stretch justify-between'>
-  <ul class='box-sm flex justify-start items-center space-x-6 divide-x-2 dark:divide-drop-100/20'>
-    <li class='text-2xl leading-none'>🇲🇽</li>
-  </ul>
-  <ul
-    class='box-sm flex flex-col gap-4 md:gap-0 md:flex-row justify-start items-center md:space-x-6 md:divide-x-2 md:dark:divide-drop-100/20 flex-auto'
-  >
-    <li>
-      © {new Date().getFullYear()} Nate Dunn. All rights reserved.
-    </li>
-  </ul>
+	<ul class='box-sm flex justify-start items-center space-x-6 divide-x-2 dark:divide-drop-100/20'>
+		<li class='text-2xl leading-none'>🇲🇽</li>
+	</ul>
+	<ul
+		class='box-sm flex flex-col gap-4 md:gap-0 md:flex-row justify-start items-center md:space-x-6 md:divide-x-2 md:dark:divide-drop-100/20 flex-auto'
+	>
+		<li>
+			© <CurrentYear client:load /> Nate Dunn. All rights reserved.
+		</li>
+	</ul>
 </footer>
