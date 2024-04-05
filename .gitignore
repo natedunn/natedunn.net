@@ -18,6 +18,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+.vercel
 
 # Local Netlify folder
 .netlify
@@ -27,3 +28,4 @@ pnpm-debug.log*
 
 # Astro
 .astro
+
